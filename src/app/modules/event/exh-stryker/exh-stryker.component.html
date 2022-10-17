@@ -1,0 +1,130 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+      <div class="col text-center">
+        <div style="position: absolute">
+          <a (click)="backClicked()" style="color: #fff"
+            ><img
+              src="/assets/event/exh/3d/white.svg"
+              style="width: 26px; margin: 15px"
+          /></a>
+          &nbsp;&nbsp;&nbsp;
+          <a [routerLink]="['', 'audi']" style="color: #fff"
+            ><img src="/assets/event/live1.gif" style="width: 80px"
+          /></a>
+          <!-- <a
+              class="btn btn-success float-left"
+              style="color: #fff; background-color: #28a745"
+              href="https://api.whatsapp.com/send?phone=00971529115152"
+              target="_blank"
+              >Whatsapp
+            </a> -->
+        </div>
+        <div class="d_1241">
+          <img
+            src="assets/event/exh/stryker_booth.png"
+            alt="Workplace"
+            usemap="#workmap"
+            width="1241px"
+            height="728px"
+          />
+          <map name="workmap">
+            <area
+              shape="rect"
+              coords="197,203,332,420"
+              alt="sss"
+              href="#"
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialog(link1)"
+            />
+            <area
+              shape="rect"
+              coords="377,277,541,373"
+              alt=""
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialogList('list', 'vimeo')"
+            />
+
+            <area
+              shape="rect"
+              coords="796,221,910,392"
+              alt=""
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialog(link2)"
+            />
+          </map>
+        </div>
+        <div class="d_768">
+          <img
+            src="assets/event/exh/stryker_booth_768.png"
+            alt="Workplace"
+            usemap="#workmap_768"
+            width="768px"
+            height="451px"
+          />
+
+          <map name="workmap_768">
+            <area
+              shape="rect"
+              coords="121,125,205,260"
+              alt="sss"
+              href="#"
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialog(link1)" />
+            <area
+              shape="rect"
+              coords="233,171,335,231"
+              alt=""
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialogList('list', 'vimeo')" />
+
+            <area
+              shape="rect"
+              coords="492,137,563,243"
+              alt=""
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialog(link2)"
+          /></map>
+        </div>
+        <div class="d_320">
+          <img
+            src="assets/event/exh/stryker_booth_320.png"
+            alt="Workplace"
+            usemap="#workmap_320"
+            width="320px"
+            height="188px"
+          />
+
+          <map name="workmap_320">
+            <area
+              shape="rect"
+              coords="51,52,86,109"
+              alt="sss"
+              href="#"
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialog(link1)"
+            />
+            <area
+              shape="rect"
+              coords="96,71,139,96"
+              alt=""
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialogList('list', 'vimeo')"
+            />
+
+            <area
+              shape="rect"
+              coords="204,56,235,102"
+              alt=""
+              [routerLink]="['', 'exh-stryker']"
+              (click)="openDialog(link2)"
+            />
+          </map>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container end -->
+  </div>
+</section>

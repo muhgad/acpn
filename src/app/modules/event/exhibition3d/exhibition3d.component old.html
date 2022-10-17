@@ -1,0 +1,120 @@
+<!-- ts schedule start-->
+<section class="ts-schedule">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="section-title">
+          <!-- <span>Schedule Details</span> -->
+          Exhibition
+        </h2>
+      </div>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+    <div class="row">
+      <!-- <a-scene embedded style="height: 700px; width: 100%"> -->
+      <a-scene renderer="antialias: true" vr-mode-ui="enabled: false">
+        <!-- <a-assets> -->
+        <!-- <a-assets (loaded)="loaded($event)" timeout="9000"> -->
+        <a-assets (loaded)="loaded($event)">
+          <!-- <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg" /> -->
+          <!-- <img id="boxTexture" src="./../assets/bg.jpg" />
+          <img id="boxTexture1" src="assets/bg.jpg" /> -->
+          <img id="Brick" src="assets/Brick-055.jpg" />
+          <!-- <a-assets-item id="event" src="assets/event.gltf"></a-assets-item> -->
+          <a-asset-item id="event" [attr.src]="file"></a-asset-item>
+        </a-assets>
+
+        <!-- <a-box
+          src="#Brick"
+          position="0 2 -5"
+          rotation="0 45 45"
+          scale="2 2 2"
+        ></a-box> -->
+        <!-- <a-entity gltf-model="#event"></a-entity> -->
+        <!-- Camera Rig -->
+        <a-entity
+          position="0 0 6"
+          raycaster="objects:.landscape,.environmentGround,.environmentDressing; far:0.5;"
+        >
+          <!-- Camera -->
+          <!-- <a-entity
+          position="0 1.6 0"
+          camera
+          look-controls="pointerLockEnabled:true"
+          wasd-controls="acceleration:50;
+                         easing:40"
+        > -->
+          <a-entity
+            position="0 1.6 0"
+            camera
+            look-controls="pointerLockEnabled:true"
+            wasd-controls="acceleration:100"
+          >
+            <!-- <a-cursor></a-cursor> -->
+            <!-- <a-sphere color="#ffaa00" position="0 -1.1 0"></a-sphere> -->
+          </a-entity>
+        </a-entity>
+
+        <a-entity
+          *ngIf="isLoaded"
+          gltf-model="#event"
+          position="0 0 -15"
+        ></a-entity>
+        <a-sky color="#fff"></a-sky>
+        <!-- <a-entity windows-motion-controls="hand: left"></a-entity>
+        <a-entity windows-motion-controls="hand: right"></a-entity> -->
+        <!-- <a-entity
+          text="value: Hello, A-Frame!; color: #BBB"
+          scale="1.5 1.5 1.5"
+          style="position: absolute; left: 10px; bottom: 50px"
+        ></a-entity> -->
+        <!-- <a-link href="box.html" image="#thumbHome" title="my Abd allah">
+        </a-link> -->
+
+        <!-- <a-entity id="cam" camera position="0 1.6 0" look-controls>
+           <a-entity
+            cursor="fuse:true;fuseTimeout:2000"
+            geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.02"
+            position="0 0 -1.8"
+            material="shader:flat;color:#ff0000"
+            animation__mouseenter="property:scale;to:3 3 3;startEvents:mouseenter;endEvents:mouseleave;dir:reverse;dur:2000;loop:1"
+          >
+          </a-entity>
+        </a-entity> -->
+
+        <a-box id="thumbHome" position="0 1 -4 "></a-box>
+      </a-scene>
+      <div
+        style="
+          background-color: rgb(195 205 215 / 60%);
+          position: absolute;
+          left: 10px;
+          top: 10px;
+          color: white;
+          padding: 3px;
+        "
+      >
+        <a [routerLink]="['./', 'contact']">Contact</a>
+      </div>
+      <div
+        style="
+          padding: 3px;
+          background-color: rgba(33, 37, 41, 0.6);
+          position: absolute;
+          left: 10px;
+          bottom: 50px;
+          color: white;
+        "
+      >
+        <ul>
+          <li>Use arrows to navigate right and left</li>
+          <li>Use mouse to rotate</li>
+          <li>Click VR button to enter Virtual Reality</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- container end-->
+</section>
+<!-- ts schedule end-->

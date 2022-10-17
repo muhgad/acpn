@@ -1,0 +1,150 @@
+<!-- ts schedule start-->
+<section style="background-color: #f6f6f4">
+  <div class="container-fluid p-0">
+    <!-- <iframe src="http://www.youtube.com/embed/W7qWa52k-nE"
+    width="560" height="315" frameborder="0" allowfullscreen></iframe> -->
+    <div *ngIf="live_type == 'vimeo'" class="row">
+      <div class="col-12">
+        <div
+          class="embed-responsive embed-responsive-16by9"
+          *ngIf="vimeo1 != ''"
+        >
+          <!-- [src]="'https://player.vimeo.com/video/513117581' | safeUrl" -->
+
+          <iframe
+            class="embed-responsive-item"
+            [src]="'https://player.vimeo.com/video/' + vimeo1 | safeUrl"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen
+          ></iframe>
+          <!-- title="My video"    width="560"
+          height="315" -->
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="live_type == 'youtube'" class="row">
+      <div class="col-12">
+        <div
+          class="embed-responsive embed-responsive-16by9"
+          *ngIf="youtube1 != null"
+        >
+          <!-- src="https://www.youtube.com/embed/urAsvBX0ctw?autoplay=1&rel=0" -->
+          <iframe
+            class="embed-responsive-item"
+            [src]="
+              'https://www.youtube.com/embed/' + youtube1 + '?autoplay=1&rel=0'
+                | safeUrl
+            "
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          ></iframe>
+          <div class="corner-bottom-right"></div>
+          <div class="corner-bottom-right-subscript"></div>
+          <div class="corner-top-right d-none d-lg-block"></div>
+          <div class="corner-top-left d-none d-lg-block"></div>
+
+          <div class="corner-top-right-mobile"></div>
+          <div class="corner-top-left-mobile"></div>
+
+          <!-- <div class="live-overlay d-none d-lg-block"></div> -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 p-0">
+        <div style="height: 375px" class="p-5">
+          <h5 class="bg-">Add Question</h5>
+          <!-- <div class="row" *ngFor="let one of todos">
+            <div class="col-2 avater d-inline">
+              <div class="p-1">
+                <img
+                  src="assets/event/blank_user.jpg"
+                  class="rounded-circle"
+                  style="width: 40px;"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="auther d-inline p-1">{{ one.name }}</div>
+              <div class="bady d-inline p-1">
+                {{ one.text }}
+              </div>
+            </div>
+          </div> -->
+          <form #f="ngForm" (ngSubmit)="add_ques(f)" class="hero-form">
+            <select name="to_user_id" ngModel #to_user_id="ngModel" required>
+              <option value="">
+                Choose speaker <span class="red">*</span>
+              </option>
+              <option *ngFor="let spe of speakers" value="{{ spe.id }}">
+                {{ spe.name }}
+              </option>
+            </select>
+            <div
+              *ngIf="
+                (to_user_id.value == '' && to_user_id.dirty) ||
+                (f.submitted && to_user_id.value == '')
+              "
+              class="alert alert-danger"
+            >
+              Speaker is required
+            </div>
+            <div class="align-self-end">
+              <textarea
+                class="p-0 form-control"
+                name="question"
+                ngModel
+                rows="2"
+                placeholder=" Enter your question"
+              ></textarea>
+
+              <input
+                type="hidden"
+                name="conference_id"
+                ngModel="{{ conference_id }}"
+              />
+              <input type="hidden" name="token" ngModel="1" />
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                  <button
+                    class="btn btn-secondary btn-sm float-left"
+                    style="
+                      line-height: 40px;
+                      height: 40px;
+                      padding: 0px 18px;
+                      margin-top: 5px;
+                    "
+                    type="submit"
+                  >
+                    Send
+                  </button>
+                </div>
+              </div>
+              <br />
+              <div>
+                <div
+                  *ngIf="f.submitted && result?.status == 'success'"
+                  class="alert alert-success"
+                >
+                  {{ result.message }}
+                </div>
+                <div
+                  *ngIf="f.submitted && result?.status == 'error'"
+                  class="alert alert-danger"
+                >
+                  {{ result.message }}
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,140 @@
+<section class="hero-area hero-speakers">
+  <div
+    class="banner-item overlay"
+    style="background-image: url(./assets/images/hero_area/banner2.jpg)"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 d-none d-lg-block">
+          <div class="banner-content-wrap">
+            <p
+              class="banner-info wow fadeInUp"
+              data-wow-duration="1.5s"
+              data-wow-delay="500ms"
+            >
+              {{ con_date }}
+            </p>
+            <h1
+              class="banner-title wow fadeInUp"
+              data-wow-duration="1.5s"
+              data-wow-delay="700ms"
+            >
+              {{ con_name }}
+            </h1>
+
+            <div
+              class="banner-btn wow fadeInUp"
+              data-wow-duration="1.5s"
+              data-wow-delay="800ms"
+            >
+              <a class="ticket-btn btn" [routerLink]="['', 'register']">
+                New Registration
+              </a>
+              <!-- <a class="btn" [routerLink]="['/', 'register']"> Registration </a> -->
+              <!-- <a href="#" class="btn fill">Add to Calendar</a> -->
+            </div>
+          </div>
+          <!-- Banner content wrap end -->
+        </div>
+        <!-- col end-->
+        <div class="col-lg-4 offset-lg-1">
+          <div class="hero-form-content">
+            <h2>Login</h2>
+            <p></p>
+
+            <div
+              *ngIf="f.submitted && result?.status == 'success'"
+              class="alert alert-success"
+            >
+              {{ result.message }}
+              <br />
+              Dear {{ result.user.name }}
+              <br />
+              The conference will start in 2 days
+            </div>
+            <div
+              *ngIf="f.submitted && result?.status == 'error'"
+              class="alert alert-danger"
+            >
+              {{ result.message }}
+            </div>
+
+            <form #f="ngForm" (ngSubmit)="onSummit(f)" class="hero-form">
+              <div *ngIf="!name">
+                <label>Email address</label>
+                <input
+                  class="form-control form-control-name"
+                  name="email"
+                  type="email"
+                  #email="ngModel"
+                  ngModel
+                  required
+                  email
+                />
+                <div
+                  *ngIf="
+                    (email.invalid && email.dirty) ||
+                    (f.submitted && email.invalid)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="email.errors!.required">Email is required</div>
+                  <div *ngIf="email.errors!.email">
+                    Email must be a valid email address
+                  </div>
+                </div>
+                <label>Password</label>
+                <input
+                  class="form-control form-control-phone"
+                  name="password"
+                  type="password"
+                  required
+                  ngModel
+                  #pass="ngModel"
+                  minlength="6"
+                />
+                <div
+                  *ngIf="
+                    (pass.invalid && pass.dirty) ||
+                    (f.submitted && pass.invalid)
+                  "
+                >
+                  <div *ngIf="pass.errors!.required" class="alert alert-danger">
+                    Password is required
+                  </div>
+
+                  <div
+                    *ngIf="pass.errors!.minlength"
+                    class="alert alert-danger"
+                  >
+                    Password minimum length must be 6 characters
+                  </div>
+                </div>
+                <input
+                  type="hidden"
+                  name="conference_id"
+                  ngModel="{{ conference_id }}"
+                />
+                <button class="btn" type="submit">Login Now</button>
+                <div class="forget">
+                  <a [routerLink]="['/', 'forget']" class=""
+                    >Forgot password?</a
+                  >
+                </div>
+                <a class="" [routerLink]="['', 'register']">
+                  New Registration
+                </a>
+              </div>
+            </form>
+
+            <!-- form end-->
+          </div>
+          <!-- hero content end-->
+        </div>
+        <!-- col end-->
+      </div>
+      <!-- row end-->
+    </div>
+    <!-- Container end -->
+  </div>
+</section>

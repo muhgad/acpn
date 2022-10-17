@@ -1,0 +1,53 @@
+<!-- ts schedule start-->
+<section class="ts-schedule">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="section-title">
+          <!-- <span>Schedule Details</span> -->
+          Exhibition
+        </h2>
+      </div>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+    <div class="row">
+      <!-- <a-scene embedded style="height: 700px; width: 100%"> -->
+      <!-- Start Scene -->
+      <a-scene renderer="antialias: true" vr-mode-ui="enabled: false">
+        <a-assets (loaded)="loaded($event)">
+          <img id="Brick" src="assets/Brick-055.jpg" />
+          <!-- <a-assets-item id="event" src="assets/event.gltf"></a-assets-item> -->
+          <a-asset-item id="event" [attr.src]="file"></a-asset-item>
+        </a-assets>
+
+        <a-entity
+          static-bady
+          *ngIf="isLoaded"
+          gltf-model="#event"
+          position="0 0 -15"
+          static-body
+        ></a-entity>
+      </a-scene>
+
+      <!-- End Scene -->
+      <div
+        style="
+          background-color: rgb(195 205 215 / 60%);
+          position: fixed;
+          left: 10px;
+          top: 10px;
+          color: #000;
+          padding: 10px;
+        "
+      >
+        <a (click)="backClicked()">Back</a>
+      </div>
+      <div style="position: fixed; left: 20px; bottom: 20px">
+        <img src="/assets/event/exh/3d/nav.png" class="nav" />
+      </div>
+    </div>
+  </div>
+  <!-- container end-->
+</section>
+<!-- ts schedule end-->

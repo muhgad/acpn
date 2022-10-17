@@ -1,0 +1,91 @@
+<section class="hero-area hero-speakers">
+  <div
+    class="banner-item overlay"
+    style="background-image: url(./assets/images/hero_area/banner2.jpg)"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="banner-content-wrap">
+            <p
+              class="banner-info wow fadeInUp"
+              data-wow-duration="1.5s"
+              data-wow-delay="500ms"
+            >
+              {{ con_date }}
+            </p>
+            <h1
+              class="banner-title wow fadeInUp"
+              data-wow-duration="1.5s"
+              data-wow-delay="700ms"
+            >
+              {{ con_name }}
+            </h1>
+
+            <div
+              class="banner-btn wow fadeInUp"
+              data-wow-duration="1.5s"
+              data-wow-delay="800ms"
+            >
+              <a class="ticket-btn btn" [routerLink]="['/', 'register']">
+                Registration
+              </a>
+              <!-- <a class="btn" [routerLink]="['/', 'register']"> Registration </a> -->
+              <!-- <a href="#" class="btn fill">Add to Calendar</a> -->
+            </div>
+          </div>
+          <!-- Banner content wrap end -->
+        </div>
+        <!-- col end-->
+        <div class="col-lg-4 offset-lg-1">
+          <div class="hero-form-content">
+            <h2>Forgot Password</h2>
+            <p></p>
+
+            <div
+              *ngIf="f.submitted && result?.status == 'success'"
+              class="alert alert-success"
+            >
+              {{ result.message }}
+            </div>
+            <div
+              *ngIf="f.submitted && result?.status == 'error'"
+              class="alert alert-danger"
+            >
+              {{ result.message }}
+            </div>
+
+            <form #f="ngForm" (ngSubmit)="onSummit(f)" class="hero-form">
+              <div>
+                <label>Email address</label>
+                <input
+                  class="form-control form-control-name"
+                  name="email"
+                  type="email"
+                  name="email"
+                  ngModel
+                  required
+                  email
+                />
+                <input
+                  type="hidden"
+                  name="conference_id"
+                  ngModel="{{ conference_id }}"
+                />
+                <button class="btn" type="submit">Forgot password</button>
+                <div class="forget">
+                  <a [routerLink]="['/', 'login']" class="">Login</a>
+                </div>
+              </div>
+            </form>
+            <!-- form end-->
+          </div>
+          <!-- hero content end-->
+        </div>
+        <!-- col end-->
+      </div>
+      <!-- row end-->
+    </div>
+    <!-- Container end -->
+  </div>
+</section>

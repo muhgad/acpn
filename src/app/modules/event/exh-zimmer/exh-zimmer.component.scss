@@ -1,0 +1,47 @@
+// a:hover {
+//   // cursor: copy;
+// cursor: copy;
+// cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/heart.png"),
+//   auto;
+// }
+// cursor: url("http://live.itcdubai.net/hand.png"), auto;
+
+// cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/heart.png"),
+//   auto;
+// cursor: url("/assets/images/hand.png"), auto;
+
+area:hover {
+  cursor: url("/assets/event/hand.png"), auto;
+}
+
+section {
+  background-color: #000;
+  padding: 0px 0px;
+}
+.d_1241,
+.d_768,
+.d_320 {
+  display: none;
+}
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+  .d_320 {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 1023px) {
+  .d_768 {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .d_1241 {
+    display: block;
+  }
+}
+/* @media screen and (min-width: 1440px) {
+      .d_1241 , .d_768,d_320 {
+        display: none;
+      }
+    } */

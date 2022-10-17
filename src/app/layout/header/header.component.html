@@ -1,0 +1,93 @@
+<header class="header default">
+  <div class="header-section">
+    <!--Container-->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg header-navbar">
+        <a class="navbar-brand navbar-logo scroll" [routerLink]="['./']">
+          <img
+            class="mb-0 logo-light"
+            src="./assets/event/ApaaLogo.png"
+            style="width: 250px"
+            alt=""
+          />
+          <img
+            class="mb-0 logo-dark"
+            src="./assets/event/ApaaLogo.png"
+            style="width: 150px"
+            alt=""
+          />
+        </a>
+        <button
+          class="navbar-toggler btn-navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target=".nav-menu"
+          aria-expanded="true"
+          aria-label="Toggle navigation"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div
+          class="
+            nav-menu
+            collapse
+            navbar-collapse navbar-collapse
+            justify-content-end
+            py-0
+          "
+        >
+          <ul class="navbar-nav header-navbar-nav">
+            <li>
+              <a class="nav-link scroll" [routerLink]="['./']" href="#Home"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scroll" href="#scientific"
+                >Scientific Committee
+              </a>
+            </li>
+            <li>
+              <a class="nav-link scroll" href="#organizing"
+                >Organizing Committee
+              </a>
+            </li>
+            <li>
+              <a class="nav-link scroll" href="#schedule">Schedule</a>
+            </li>
+            <li>
+              <a class="nav-link scroll" href="#speakers">Speakers</a>
+            </li>
+            <li>
+              <a class="nav-link scroll" [routerLink]="['./sponsors']" 
+                >Sponsors</a
+              >
+            </li>
+            <li>
+              <a
+                class="scroll btn btn-primary btn-lg mb-5 mb-lg-0 p-1"
+                [routerLink]="['./', 'register']"
+              >
+                Registration
+              </a>
+            </li>
+
+            <!-- <li>
+              <a class="nav-link scroll" [routerLink]="['./', 'gallery']"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scroll" [routerLink]="['./', 'library']"
+                >Video Library
+              </a>
+            </li> -->
+            <!--                <li class="mb-4 mb-lg-0"><a class="nav-link scroll" href="#faq">FAQ</a>
+              </li>-->
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!--End container-->
+  </div>
+</header>

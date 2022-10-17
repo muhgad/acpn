@@ -1,0 +1,42 @@
+<!-- ts speaker start-->
+<section id="societyBoard" class="ts-speakers section-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="section-title text-center">
+          <!-- <span>Listen to the</span> -->
+          Questions
+        </h2>
+      </div>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+    <div class="row">
+      <!-- col end-->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Speaker</th>
+            <th scope="col">Questions</th>
+            <th scope="col">By User</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ques of questions; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ ques.speaker }}</td>
+            <td>{{ ques.question }}</td>
+            <td>{{ ques.user }}</td>
+            <td>{{ ques.created_at | date: "medium" }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+  </div>
+  <!-- container end-->
+</section>
+<!-- ts speaker end-->

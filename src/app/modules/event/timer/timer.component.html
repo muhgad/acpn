@@ -1,0 +1,101 @@
+<section id="countdown" class="bg-primary-2">
+  <!--Container-->
+  <div class="container spacer-double-sm position-relative z-index-3">
+    <!--Row-->
+    <div
+      class="row justify-content-between position-relative align-items-center"
+    >
+      <div class="col">
+        <div class="mb-5 pb-5 text-center">
+          <span class="icon-title icon-bg-light rounded-circle mb-3">
+            <img
+              class="icon-title-inner"
+              src="assets/svg/time-icon.svg"
+              alt=""
+            />
+          </span>
+          <h2 class="text-white h1">Time left until the conference start</h2>
+          <p class="w-md-60 mx-auto text-white mb-0 lead">
+            <!-- 20 to 22 january 2022 with over 40 sessions - ABU DHABI, UAE -->
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End row-->
+    <!--Row-->
+    <div class="row justify-content-center">
+      <div class="col-xl-8 col-lg-9 col-md-10">
+        <div
+          class="
+            countdown
+            text-center
+            card card-body
+            bg-white-20
+            border-0
+            flex-row flex-wrap
+            justify-content-around
+          "
+        >
+          <div class="p-2">
+            <span class="counter mb-1">{{ days }}</span>
+            <span class="label">Day</span>
+          </div>
+          <div class="p-2">
+            <span class="counter mb-1">{{ hours }}</span>
+            <span class="label">Hour</span>
+          </div>
+          <div class="p-2">
+            <span class="counter mb-1">{{ mins }}</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="p-2">
+            <span class="counter mb-1">{{ secs }}</span>
+            <span class="label">Seconds</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-xl-8 col-lg-9 col-md-10">
+        <div
+          class="countdown text-center card card-body bg-white-20 border-0 flex-row flex-wrap justify-content-around"
+        >
+      
+      </div>
+      </div> -->
+    </div>
+    <!--End row-->
+  </div>
+  <!-- <div class="curved-decoration z-index-3">
+    <svg
+      version="1.1"
+      class="bg-white-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 2560 221"
+      enable-background="new 0 0 2560 221"
+      xml:space="preserve"
+    >
+      <polygon points="2560,221 0,221 2560,0 "></polygon>
+    </svg>
+  </div> -->
+  <!-- start new bg -->
+  <div class="curved-decoration img-decoration img-decoration-bottom">
+    <svg
+      version="1.1"
+      class="bg-white-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 2560 221"
+      enable-background="new 0 0 2560 221"
+      xml:space="preserve"
+    >
+      <polygon points="2560,221 0,221 2560,0 "></polygon>
+    </svg>
+  </div>
+
+  <!-- end new bg -->
+</section>

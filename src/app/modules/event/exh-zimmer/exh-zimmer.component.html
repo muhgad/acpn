@@ -1,0 +1,193 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+      <div class="col text-center">
+        <div style="position: absolute">
+          <a (click)="backClicked()" style="color: #fff; background-color: #000"
+            ><img
+              src="/assets/event/exh/3d/white.svg"
+              style="width: 26px; margin: 15px"
+          /></a>
+          &nbsp;&nbsp;&nbsp;
+          <a [routerLink]="['', 'audi']" style="color: #fff"
+            ><img src="/assets/event/live1.gif" style="width: 80px"
+          /></a>
+          &nbsp;&nbsp;&nbsp;
+          <a
+            href="https://api.whatsapp.com/send?phone=009613905126"
+            target="_blank"
+          >
+            <img
+              src="/assets/event/whatsapp.png"
+              style="width: 60px; padding: 7px"
+            />
+          </a>
+        </div>
+        <div class="d_1241">
+          <img
+            src="assets/event/exh/zimmer_booth.png"
+            alt="Workplace"
+            usemap="#workmap"
+            width="1241px"
+            height="706px"
+          />
+          <map name="workmap">
+            <area
+              shape="rect"
+              coords="220,100,740,177"
+              href="assets/event/exh/zimmer.pdf"
+              target="_blank"
+            />
+            <area
+              shape="rect"
+              coords="363,258,474,322"
+              alt="sss"
+              href="#"
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog(linkVedio, 'vedio')"
+            />
+            <area
+              shape="rect"
+              coords="801,251,960,343"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog(linkVedio2, 'vimeo')"
+            />
+
+            <area
+              shape="rect"
+              coords="125,423,256,545"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')"
+            />
+            <area
+              shape="rect"
+              coords="538,422,665,545"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')"
+            />
+
+            <area
+              shape="rect"
+              coords="1036,422,1160,547"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')"
+            />
+            <!-- <area shape="rect" coords="323,265,453,338" alt="vedio" /> -->
+          </map>
+        </div>
+        <div class="d_768">
+          <img
+            src="assets/event/exh/zimmer_booth_768.png"
+            alt="Workplace"
+            usemap="#workmap_768"
+            width="768px"
+            height="437px"
+          />
+
+          <map name="workmap_768">
+            <area
+              shape="rect"
+              coords="134,60,450,111"
+              href="assets/event/exh/zimmer.pdf"
+              target="_blank" />
+            <area
+              shape="rect"
+              coords="224,159,292,199"
+              alt="sss"
+              href="#"
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog(linkVedio, 'vedio')" />
+            <area
+              shape="rect"
+              coords="495,154,954,212"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog(linkVedio2, 'vimeo')" />
+
+            <area
+              shape="rect"
+              coords="77,261,159,337"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')" />
+            <area
+              shape="rect"
+              coords="332,261,411,337"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')" />
+
+            <area
+              shape="rect"
+              coords="641,261,718,337"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')"
+          /></map>
+        </div>
+        <div class="d_320">
+          <img
+            src="assets/event/exh/zimmer_booth_320.png"
+            alt="Workplace"
+            usemap="#workmap_320"
+            width="320px"
+            height="182px"
+          />
+
+          <map name="workmap_320">
+            <area
+              shape="rect"
+              coords="56,25,190,47"
+              href="assets/event/exh/zimmer.pdf"
+              target="_blank"
+            />
+            <area
+              shape="rect"
+              coords="93,66,122,83"
+              alt="sss"
+              href="#"
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog(linkVedio, 'vedio')"
+            />
+            <area
+              shape="rect"
+              coords="206,64,247,88"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog(linkVedio2, 'vimeo')"
+            />
+            <area
+              shape="rect"
+              coords="32,108,66,141"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')"
+            />
+            <area
+              shape="rect"
+              coords="138,108,171,141"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')"
+            />
+
+            <area
+              shape="rect"
+              coords="266,108,299,141"
+              alt=""
+              [routerLink]="['', 'exh-zimmer']"
+              (click)="openDialog('pdflist')"
+            />
+          </map>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container end -->
+  </div>
+</section>

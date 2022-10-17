@@ -1,0 +1,22 @@
+// @import "src/assets/sass/variable";
+// @import "@sass/variable";
+
+// a {
+//   background-color: $primary-color;
+// }
+
+.name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 43px;
+}
+
+.header ul.navbar-nav > li > a {
+  padding: 0 7px;
+}
+
+@media (max-width: 767px) {
+  .header .navbar-collapse {
+    max-height: 362px;
+  }
+}

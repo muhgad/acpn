@@ -1,0 +1,43 @@
+.hero-area.centerd-item .banner-item:after {
+  background: transparent;
+}
+.banner-item .banner-content-wrap {
+  padding: 214px 0 110px;
+}
+
+.left-banner,
+.right-banner {
+  margin-top: 18rem;
+  transition: transform 0.1s;
+}
+
+.right-banner:hover,
+.left-banner:hover {
+  -ms-transform: scale(1.05); /* IE 9 */
+  -webkit-transform: scale(1.05); /* Safari 3-8 */
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 1024px) {
+  .left-banner,
+  .right-banner {
+    margin-top: 25rem;
+  }
+}
+.customreg {
+  transition: transform 0.1s;
+}
+.customreg:hover {
+  -ms-transform: scale(1.05); /* IE 9 */
+  -webkit-transform: scale(1.05); /* Safari 3-8 */
+  transform: scale(1.05);
+}
+
+.counter-item {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* .countdown {
+  margin-bottom: 34px;
+  margin-top: 50px;
+} */

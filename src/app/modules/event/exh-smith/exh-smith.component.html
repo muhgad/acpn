@@ -1,0 +1,111 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+      <div class="col text-center">
+        <div style="position: absolute">
+          <a (click)="backClicked()" style="color: #fff"
+            ><img
+              src="/assets/event/exh/3d/white.svg"
+              style="width: 26px; margin: 15px"
+          /></a>
+          &nbsp;&nbsp;&nbsp;
+          <a [routerLink]="['', 'audi']" style="color: #fff"
+            ><img src="/assets/event/live1.gif" style="width: 80px"
+          /></a>
+          <!-- <a
+              class="btn btn-success float-left"
+              style="color: #fff; background-color: #28a745"
+              href="https://api.whatsapp.com/send?phone=00971529115152"
+              target="_blank"
+              >Whatsapp
+            </a> -->
+        </div>
+        <div class="d_1241">
+          <img
+            src="assets/event/exh/smith_booth.png"
+            alt="Workplace"
+            usemap="#workmap"
+            width="1241px"
+            height="700px"
+          />
+          <map name="workmap">
+            <area
+              shape="rect"
+              coords="408,226,555,312"
+              alt="sss"
+              href="#"
+              href="http://players.brightcove.net/1797365924001/HkeWzVRS7x_default/index.html?videoId=5859383382001"
+              target="_blank"
+            />
+            <area
+              shape="rect"
+              coords="670,191,842,390"
+              alt=""
+              [routerLink]="['', 'exh-smith-and-nephew']"
+              (click)="openDialog('11')"
+            />
+
+            <!-- <area shape="rect" coords="323,265,453,338" alt="vedio" /> -->
+          </map>
+        </div>
+        <div class="d_768">
+          <img
+            src="assets/event/exh/smith_booth_768.png"
+            alt="Workplace"
+            usemap="#workmap_768"
+            width="768px"
+            height="433px"
+          />
+
+          <map name="workmap_768">
+            <area
+              shape="rect"
+              coords="253,136,346,195"
+              alt="sss"
+              href="#"
+              href="http://players.brightcove.net/1797365924001/HkeWzVRS7x_default/index.html?videoId=5859383382001"
+              target="_blank"
+            />
+            <area
+              shape="rect"
+              coords="415,117,522,240"
+              alt=""
+              [routerLink]="['', 'exh-smith-and-nephew']"
+              (click)="openDialog('11')"
+            />
+          </map>
+        </div>
+        <div class="d_320">
+          <img
+            src="assets/event/exh/smith_booth_320.png"
+            alt="Workplace"
+            usemap="#workmap_320"
+            width="320px"
+            height="180px"
+          />
+
+          <map name="workmap_320">
+            <area
+              shape="rect"
+              coords="104,56,143,80"
+              alt="sss"
+              href="#"
+              href="http://players.brightcove.net/1797365924001/HkeWzVRS7x_default/index.html?videoId=5859383382001"
+              target="_blank"
+            />
+            <area
+              shape="rect"
+              coords="173,48,217,100"
+              alt=""
+              [routerLink]="['', 'exh-smith-and-nephew']"
+              (click)="openDialog('11')"
+            />
+          </map>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container end -->
+  </div>
+</section>

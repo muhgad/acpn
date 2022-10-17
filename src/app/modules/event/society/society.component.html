@@ -1,0 +1,106 @@
+<section id="scientific" class="">
+  <!--Container-->
+  <div class="container spacer-double-sm">
+    <!--Row-->
+    <div class="row">
+      <div class="col">
+        <div class="mb-5 pb-5 text-center">
+          <span class="icon-title icon-bg-dark rounded-circle mb-3">
+            <img
+              class="icon-title-inner"
+              src="assets/svg/speaker-icon-2.svg"
+              alt=""
+            />
+          </span>
+          <h2 class="h1">Scientific Committee</h2>
+          <!-- <p class="w-md-60 mx-auto mb-0 lead">
+                We are bringing you the perfect combination of content and
+                experience to ignite your heart equip your mind and spark your
+                skill.
+              </p> -->
+        </div>
+      </div>
+    </div>
+    <!--End row-->
+    <!--Row-->
+    <div class="row justify-content-center">
+      <div class="col-xl-10 col-lg-11">
+        <div class="row">
+          <div class="row" *ngIf="count_speakers == 0">
+            <div class="text-center">Data will be updated latter</div>
+          </div>
+          <div class="row" *ngIf="count_speakers > 0">
+            <div
+              class="col-sm-6 col-md-4 text-center mb-5"
+              *ngFor="let spe of speakers"
+            >
+              <div class="d-flex flex-column align-items-center">
+                <img
+                  src="{{ imageLink }}/personals/{{ spe.photo }}"
+                  class="avatar-lg mb-2 rounded-circle pointer"
+                  alt=""
+                  (click)="
+                    openDialog(
+                      spe.fname + ' ' + spe.lname,
+                      spe.photo,
+                      spe.designation,
+                      spe.biography
+                    )
+                  "
+                />
+
+                <h5
+                  (click)="
+                    openDialog(
+                      spe.fname + ' ' + spe.lname,
+                      spe.photo,
+                      spe.designation,
+                      spe.biography
+                    )
+                  "
+                  class="mb-0 pointer"
+                >
+                  {{ spe.fname }} {{ spe.lname }}
+                </h5>
+                <span class="mb-3 text-secondary"> {{ spe.designation }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End row-->
+    <!--Row-->
+    <div class="row justify-content-center mt-5 pt-5">
+      <div class="col-auto">
+        <div class="alert shadow-lg mb-0 text-center">
+          <p class="mb-0">
+            Interested in attending the conference ?
+            <a
+              [routerLink]="['./', 'register']"
+              class="hover-arrow text-blue scroll"
+              >Registration <span class="fa fa-arrow-right"></span
+            ></a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--End row-->
+  </div>
+  <!--End container-->
+  <!-- <div class="curved-decoration">
+    <svg
+      version="1.1"
+      class="bg-secondary-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 2560 221"
+      enable-background="new 0 0 2560 221"
+      xml:space="preserve"
+    >
+      <polygon points="2560,221 0,221 2560,0 "></polygon>
+    </svg>
+  </div> -->
+</section>

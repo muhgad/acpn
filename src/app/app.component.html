@@ -1,0 +1,14 @@
+<!-- Header start -->
+<app-header></app-header>
+<!--/ Header end -->
+
+<router-outlet></router-outlet>
+<!-- ts footer area start-->
+<app-footer></app-footer>
+<!-- ts footer area end-->
+
+<!--To the top-->
+<a *ngIf="isShow" (click)="gotoTop()" class="rounded-circle totop">
+  <span class="fas fa-arrow-up top-icon"></span>
+</a>
+<!-- End to the top -->

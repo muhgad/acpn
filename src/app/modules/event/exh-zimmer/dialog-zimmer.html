@@ -1,0 +1,155 @@
+<!-- <h2 mat-dialog-title>Install Angular</h2> -->
+<mat-dialog-content class="mat-typography">
+  <!-- [src]=" link  | safeUrl" -->
+  <iframe
+    *ngIf="type=='vimeo'  "
+    [src]=" 'https://player.vimeo.com/video/'+name  | safeUrl"
+    width="560"
+    height="315"
+    frameborder="0"
+    title="My video"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+  ></iframe>
+
+  <iframe
+    *ngIf="type=='vedio' && list =='no' "
+    width="560"
+    height="315"
+    [src]=" 'https://www.youtube.com/embed/'+name  | safeUrl"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+
+  <div *ngIf="type=='vedio' && list =='yes' ">
+    <h3
+      style="
+        background-color: #56488f;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+      "
+      class="text-center title-banner"
+    >
+      Videos list
+    </h3>
+    <ul style="margin-left: 20px">
+      <li>
+        <a
+          [routerLink]="['', 'exh-zimmer']"
+          (click)="openDialogVimeo(linkVedio1, 'vedio')"
+        >
+          ALPS PHP Hight Plate
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['', 'exh-zimmer']"
+          (click)="openDialogVimeo(linkVedio2, 'vedio')"
+        >
+          ALPS PHP Low Plate</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['', 'exh-zimmer']"
+          (click)="openDialogVimeo(linkVedio3, 'vedio')"
+        >
+          DVR Crosslock</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['', 'exh-zimmer']"
+          (click)="openDialogVimeo(linkVedio4, 'vedio')"
+        >
+          FastFrame510k 720
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['', 'exh-zimmer']"
+          (click)="openDialogVimeo(linkVedio5, 'vedio')"
+        >
+          MAX VPC™ Screw System Volar Approach for Scaphoid Fracture
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['', 'exh-zimmer']"
+          (click)="openDialogVimeo(linkVedio6, 'vedio')"
+        >
+          Zimmer NCB Periprosthetic Femur Plate System
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- <img
+    *ngIf="type=='image'"
+    src="assets/event/exh/{{name}}"
+    class="img-fluid"
+  /> -->
+  <div *ngIf="type=='image'">
+    <h3
+      class="text-center title-banner"
+      style="
+        background-color: #56488f;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+      "
+    >
+      Attachments list
+    </h3>
+    <ul style="margin-left: 20px">
+      <li>
+        <a href="assets/event/exh/{{link1}}" target="_blank"
+          >FastFrameTM External Fixation System
+        </a>
+      </li>
+      <li>
+        <a href="assets/event/exh/{{link2}}" target="_blank"
+          >DVR® Portfolio of Plates</a
+        >
+      </li>
+      <li>
+        <a href="assets/event/exh/{{link3}}" target="_blank"
+          >A.L.P.S.® Proximal Humerus Plating System</a
+        >
+      </li>
+      <li>
+        <a href="assets/event/exh/{{link4}}" target="_blank"
+          >AFFIXUS® Natural Nail® Proximal Humeral System
+        </a>
+      </li>
+      <li>
+        <a href="assets/event/exh/{{link5}}" target="_blank"
+          >Augmented Baseplate TECHNICAL GUIDE
+        </a>
+      </li>
+      <li>
+        <a href="assets/event/exh/{{link6}}" target="_blank"
+          >SignatureONE Shoulder System Flyer digital
+        </a>
+      </li>
+      <li>
+        <a href="assets/event/exh/{{link7}}" target="_blank"
+          >Flyer Augments n Signature Bone Preservation Baseplate
+        </a>
+      </li>
+    </ul>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+</mat-dialog-actions>
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

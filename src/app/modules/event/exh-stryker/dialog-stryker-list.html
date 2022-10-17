@@ -1,0 +1,39 @@
+<!-- <h2 mat-dialog-title>Install Angular</h2> -->
+<mat-dialog-content class="mat-typography">
+  <div>
+    <h3
+      style="
+        background-color: #56488f;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+      "
+      class="text-center title-banner"
+    >
+      Videos list
+    </h3>
+    <ul style="margin-left: 20px">
+      <li>
+        <a
+          [routerLink]="['', 'exh-stryker']"
+          (click)="openDialog(linkVedio1, 'vimeo')"
+        >
+          T2 Alpha animation
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['', 'exh-stryker']"
+          (click)="openDialog(linkVedio2, 'vimeo')"
+        >
+          Introducing ADAPT - video</a
+        >
+      </li>
+    </ul>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+</mat-dialog-actions>

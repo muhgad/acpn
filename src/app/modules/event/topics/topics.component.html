@@ -1,0 +1,39 @@
+<section class="ts-schedule" id="topics">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="section-title">
+          Topics
+        </h2>
+      </div>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="tab-content schedule-tabs">
+          <div role="tabpanel" class="tab-pane active" id="date3">
+            <!--schedule-listing end -->
+            <div class="schedule-listing" *ngFor="let top of topics">
+              <div class="schedule-slot-info">
+                <div class="schedule-slot-info-content">
+                  <h3 class="schedule-slot-title">
+                    {{ top.title }}
+                  </h3>
+                </div>
+                <!--Info content end -->
+              </div>
+              <!-- Slot info end -->
+            </div>
+            <!--schedule-listing end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- container end-->
+  <div class="speaker-shap">
+    <img class="shap2" src="images/shap/home_schedule_memphis1.png" alt="" />
+    <img class="shap1" src="images/shap/home_schedule_memphis2.png" alt="" />
+  </div>
+</section>

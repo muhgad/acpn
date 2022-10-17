@@ -1,0 +1,42 @@
+<!-- <h2 mat-dialog-title>Install Angular</h2> -->
+<mat-dialog-content class="mat-typography">
+  <iframe
+    *ngIf="type=='vedio'"
+    width="560"
+    height="315"
+    [src]="link | safeUrl"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  <!-- <img
+    *ngIf="type=='image'"
+    src="assets/event/exh/{{name}}"
+    class="img-fluid"
+  /> -->
+  <h3 class="text-center title-banner">Attachments list</h3>
+  <ul>
+    <li>
+      <a
+        href="assets/event/exh/smith_05036-V2-NTERTAN-Claims-Brochure-0817.pdf"
+        target="_blank"
+        >TRIGEN INTERTAN Intertrochanteric Antegrade Nail
+      </a>
+    </li>
+    <li>
+      <a
+        href="assets/event/exh/smith_EVOS-SMALL-Message-Brochure-V3.pdf"
+        target="_blank"
+        >EVOS SMALL Plating System</a
+      >
+    </li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+</mat-dialog-actions>
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

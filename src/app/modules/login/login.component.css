@@ -1,0 +1,16 @@
+label {
+  color: black;
+  float: left;
+}
+.forget {
+  padding-top: 15px;
+}
+.hero-form-content {
+  color: black;
+}
+.hero-speakers .banner-item .banner-content-wrap {
+  padding: 200px 0 180px;
+}
+.banner-content-wrap .banner-title {
+  font-size: 60px;
+}

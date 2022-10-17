@@ -1,0 +1,127 @@
+<!-- ts speaker start-->
+<section id="societyBoard" class="ts-speakers section-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="section-title text-center">
+          <!-- <span>Listen to the</span> -->
+          Organizing Committee
+        </h2>
+      </div>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+    <div class="row">
+      <!-- col end-->
+      <div class="col-lg-3 col-md-6" *ngFor="let spe of speakers">
+        <div class="ts-speaker">
+          <div class="speaker-img">
+            <img
+              class="img-fluid"
+              src="{{ imageLink }}/personals/{{ spe.photo }}"
+              alt=""
+            />
+            <!-- assets/images/speakers/speaker1.jpg -->
+            <!-- <a
+                  href="#popup_{{ spe.id }}"
+                  class="view-speaker ts-image-popup"
+                  data-effect="mfp-zoom-in"
+                >
+                  <i class="icon icon-plus"></i>
+                </a> -->
+          </div>
+          <div class="ts-speaker-info">
+            <h3 class="ts-title">
+              <a>{{ spe.name }}</a>
+            </h3>
+            <p>
+              {{ spe.designation }}
+            </p>
+          </div>
+        </div>
+        <!-- popup start-->
+        <div
+          id="popup_{{ spe.id }}"
+          class="container ts-speaker-popup mfp-hide"
+        >
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="ts-speaker-popup-img">
+                <img src="{{ imageLink }}/personals/{{ spe.photo }}" alt="" />
+              </div>
+            </div>
+            <!-- col end-->
+            <div class="col-lg-6">
+              <div class="ts-speaker-popup-content">
+                <h3 class="ts-title">{{ spe.name }}</h3>
+                <span class="speakder-designation">{{ spe.designation }}</span>
+                <img
+                  class="company-logo"
+                  src="assets/images/sponsors/sponsor-6.png"
+                  alt=""
+                />
+                <p>
+                  World is committed to making participation in the event a
+                  harass ment free experience for everyone, regardless of level
+                  experience gender, gender identity and expression
+                </p>
+                <h4 class="session-name">Sessions by David</h4>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="speaker-session-info">
+                      <h4>Day 1</h4>
+                      <span> 10.30 - 11.30 am </span>
+                      <p>Marketing Matters</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="speaker-session-info">
+                      <h4>Day 1</h4>
+                      <span> 10.30 - 11.30 am </span>
+                      <p>Marketing Matters</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ts-speakers-social">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+              <!-- ts-speaker-popup-content end-->
+            </div>
+            <!-- col end-->
+          </div>
+          <!-- row end-->
+        </div>
+        <!-- popup end-->
+      </div>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+  </div>
+  <!-- container end-->
+
+  <!-- shap img-->
+  <div class="speaker-shap">
+    <img
+      class="shap1"
+      src="assets/images/shap/home_speaker_memphis1.png"
+      alt=""
+    />
+    <img
+      class="shap2"
+      src="assets/images/shap/home_speaker_memphis2.png"
+      alt=""
+    />
+    <img
+      class="shap3"
+      src="assets/images/shap/home_speaker_memphis3.png"
+      alt=""
+    />
+  </div>
+  <!-- shap img end-->
+</section>
+<!-- ts speaker end-->

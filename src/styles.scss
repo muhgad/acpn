@@ -1,0 +1,822 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$wdsclive-primary: mat.define-palette(mat.$indigo-palette);
+$wdsclive-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$wdsclive-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$wdsclive-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $wdsclive-primary,
+      accent: $wdsclive-accent,
+      warn: $wdsclive-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($wdsclive-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import "variable";
+@import "mixin";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #e7e7e7;
+}
+.red{
+  color: #f40002;
+}
+// Gad
+.section {
+  // min-height: 700px;
+  background-color: #e7e7e7;
+}
+.section-title {
+  margin-top: 50px;
+  font-size: 28px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.footer {
+  background-color: rgb(12, 11, 11);
+  color: #fff;
+  // position: absolute;
+  width: 100%;
+}
+.main_btn {
+  color: #fff !important;
+  background-color: #90278c !important;
+  border-color: #90278c !important;
+}
+
+h2 {
+  font-size: 30px;
+  color: #000;
+  padding-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+h2:before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #1c732f;
+  position: absolute;
+  bottom: 0;
+}
+
+h2:after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  background: #f40002;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+//Start for link on video
+
+
+//End  for link on video
+
+
+
+
+/*============================
+ ts schedule 
+ ===========================*/
+ .ts-schedule-info {
+  position: relative;
+
+  ul {
+    position: relative;
+    text-align: center;
+    border: none;
+    min-height: 380px;
+
+    li {
+      a {
+        height: 245px;
+        width: 245px;
+        @include border-radius(50%);
+        background-image: linear-gradient(
+          -45deg,
+          rgb(34, 225, 255) 0%,
+          rgb(29, 143, 225) 49%,
+          rgb(98, 94, 177) 100%
+        );
+        background-image: -webkit-linear-gradient(
+          -45deg,
+          rgb(34, 225, 255) 0%,
+          rgb(29, 143, 225) 49%,
+          rgb(98, 94, 177) 100%
+        );
+        background-image: -ms-linear-gradient(
+          -45deg,
+          rgb(34, 225, 255) 0%,
+          rgb(29, 143, 225) 49%,
+          rgb(98, 94, 177) 100%
+        );
+        opacity: 0.502;
+        display: block;
+        @include absolute();
+        z-index: 1;
+        color: $white-color;
+        padding: 100px 0;
+
+        h3 {
+          font-size: 30px;
+          font-weight: 700;
+          color: $white-color;
+          opacity: 0.5;
+        }
+
+        span {
+          text-transform: uppercase;
+          opacity: 0.5;
+        }
+      }
+
+      &:nth-child(1) {
+        a {
+          top: 140px;
+          background-image: linear-gradient(
+            110deg,
+            rgb(252, 96, 118) 0%,
+            rgb(255, 154, 68) 100%
+          );
+        }
+      }
+
+      &:nth-child(2) {
+        a {
+          left: 130px;
+          top: -15px;
+        }
+      }
+
+      &:nth-child(3) {
+        a {
+          top: 100px;
+          left: auto;
+          right: 0;
+          background-image: radial-gradient(
+            circle closest-side at 50% 50%,
+            rgb(87, 198, 225) 0%,
+            rgb(180, 159, 218) 0%,
+            rgb(122, 197, 216) 0%,
+            rgb(238, 162, 162) 0%,
+            rgb(177, 175, 240) 0%,
+            rgb(131, 109, 240) 100%
+          );
+        }
+      }
+
+      &:nth-child(4) {
+        a {
+          top: 221px;
+    left: auto;
+    right: 132px;
+    background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #57c6e1 0%, #b49fda 0%, #7ac5d8 0%, #eea2a2 0%, #b1aff0 0%, #d8244e 100%);
+        }
+      }
+
+      a.active {
+        box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.12);
+        opacity: 1;
+        z-index: 2;
+
+        h3,
+        span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* schedule-listing */
+.schedule-listing {
+  display: flex;
+  flex-direction: row;
+
+  .schedule-slot-time {
+    background: $primary-dark;
+    color: $white-color;
+    padding: 60px 28px;
+    font-size: 18px;
+    font-weight: 700;
+
+    flex: 0 0 18%;
+    max-width: 18%;
+
+    span {
+      display: block;
+      line-height: 26px;
+    }
+  }
+
+  .schedule-slot-info {
+    position: relative;
+    padding: 35px 40px 35px 170px;
+    border: 1px dashed #e5e5e5;
+    border-left: none;
+    width: 100%;
+
+    .schedule-slot-speakers {
+      @include absolute(absolute, 40px, 0);
+      height: 80px;
+      width: 80px;
+      @include border-radius(50%);
+      bottom: 0;
+      margin: auto;
+    }
+
+    .schedule-slot-title {
+      font-size: 24px;
+
+      strong {
+        font-size: 14px;
+        color: #888888;
+        margin-left: 12px;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &:hover {
+    .schedule-slot-title {
+      color: $secondary-color;
+    }
+  }
+
+  &:nth-of-type(even) {
+    .schedule-slot-time {
+      background: $primary-color;
+    }
+  }
+
+  &.launce {
+    .schedule-slot-time {
+      padding: 40px 28px;
+    }
+
+    .schedule-slot-title {
+      float: left;
+      margin-bottom: 0;
+    }
+
+    .schedule-slot-info-content {
+      img {
+        float: right;
+      }
+    }
+  }
+}
+
+.schedule-listing-btn {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.schedule-tabs,
+.direction-tabs {
+  .tab-pane.active {
+    -webkit-animation-name: fadeRight;
+    animation-name: fadeRight;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+}
+
+// start
+@media (max-width: 767px){
+.schedule-listing {
+  flex-direction: column;
+
+  .schedule-slot-time {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 20px 35px;
+  }
+
+  .schedule-slot-info {
+    padding: 35px 40px 35px 35px;
+    border-left: 1px dashed #e5e5e5;
+
+    .schedule-slot-speakers {
+      display: none;
+    }
+  }
+}
+
+.schedule-listing-btn {
+  margin-top: 40px;
+}
+}
+//end
+@-webkit-keyframes fadeRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* index 2*/
+.ts-schedule-nav {
+  text-align: center;
+  margin-bottom: 90px;
+
+  ul {
+    border: none;
+
+    li {
+      // margin: 0 3px;
+
+      a {
+        font-size: 12px;
+        color: $title-color;
+        text-transform: uppercase;
+        background: #f1f0f6;
+        display: block;
+        padding: 20px 50px;
+        position: relative;
+        text-decoration: none;
+        // &:before {
+        //   width: 0;
+        //   height: 0;
+        //   border-style: solid;
+        //   border-width: 0 15px 15px 0;
+        //   border-color: transparent $primary-color transparent transparent;
+        //   position: absolute;
+        //   left: 0;
+        //   bottom: -15px;
+        //   content: "";
+        //   opacity: 0;
+        //   @include transition();
+        // }
+
+        h3 {
+          font-size: 24px;
+          font-weight: 400;
+          color: $title-color;
+          margin-bottom: 0;
+          text-transform: capitalize;
+          text-decoration: none!important;
+        }
+
+        &.active {
+          background: $primary-color;
+          color: $white-color;
+          text-decoration: none;
+          h3 {
+            color: $white-color;
+          }
+
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+}
+.agenda{
+  .day{
+    a {
+      font-size: 12px;
+      color: $title-color;
+      text-transform: uppercase;
+      background: #f1f0f6;
+      display: block;
+      padding: 20px 50px;
+      position: relative;
+      text-decoration: none;
+      h3 {
+        font-size: 24px;
+        font-weight: 400;
+        color: $title-color;
+        margin-bottom: 0;
+        text-transform: capitalize;
+        text-decoration: none!important;
+      }
+      &.active {
+        background: $primary-color;
+        color: $white-color;
+        text-decoration: none;
+        h3 {
+          color: $white-color;
+        }
+
+        &:before {
+          opacity: 1;
+        }
+      }
+  }
+}
+}
+
+.schedule-tabs-item {
+  .schedule-listing-item {
+    position: relative;
+
+    .schedule-slot-time {
+      font-size: 14px;
+      color: $primary-color;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .schedule-slot-title {
+      margin-bottom: 10px;
+    }
+
+    .schedule-slot-name {
+      font-size: 14px;
+      line-height: 36px;
+      color: #888888;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .schedule-slot-speakers {
+      position: absolute;
+      top: 60px;
+      width: 50px;
+      height: 50px;
+      @include border-radius(50%);
+      box-shadow: 19.799px 19.799px 40px 0px rgba(0, 0, 0, 0.1);
+      background-image: linear-gradient(
+        135deg,
+        rgb(130, 225, 130) 0%,
+        rgb(10, 203, 245) 100%
+      );
+    }
+
+    &:before {
+      position: absolute;
+      top: -30px;
+      width: 2px;
+      height: 100%;
+      content: "";
+      background: #f1f0f6;
+      @include transition();
+    }
+
+    &:after {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      content: "";
+      border: 2px solid $primary-color;
+      @include border-radius(50%);
+      top: 80px;
+      background: $white-color;
+    }
+
+    &.schedule-left {
+      padding: 60px 125px 20px 0;
+      text-align: right;
+      margin-top: 245px;
+
+      .schedule-slot-speakers {
+        right: 30px;
+      }
+
+      &:before {
+        right: -17px;
+      }
+
+      &:after {
+        right: -21px;
+      }
+    }
+
+    &.schedule-right {
+      padding: 60px 20px 0px 125px;
+      text-align: left;
+
+      .schedule-slot-speakers {
+        left: 30px;
+      }
+
+      &:before {
+        left: -15px;
+      }
+
+      &:after {
+        left: -19px;
+      }
+    }
+
+    &:hover {
+      &:before {
+        background: $primary-color;
+      }
+    }
+  }
+}
+
+/* box style */
+@media (min-width: 1024px) {
+  .box-style {
+    padding-bottom: 150px;
+    .row {
+      position: relative;
+      .item {
+        .about-intro-text {
+          padding: 50px 55px 0 55px;
+        }
+      }
+    }
+
+    .indicator {
+      position: absolute;
+      content: "";
+      height: 100%;
+      left: 33.3333333333%;
+      position: absolute;
+      transform: translate3d(0, 0, 0);
+      transition: left 500ms cubic-bezier(0.694, 0, 0.335, 1);
+      width: 33.3333333333%;
+      z-index: -1;
+      box-shadow: 0px 15px 60px 0px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    .row .item:nth-child(1):hover ~ .indicator {
+      left: 0;
+    }
+
+    .row .item:nth-child(3):hover ~ .indicator {
+      left: 66.6666666%;
+    }
+  }
+}
+
+  /* count down */
+  .countdown {
+    margin-bottom: 60px;
+  
+    .counter-item {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      @include border-radius(50%);
+      text-align: center;
+      color: $white-color;
+      margin-right: 18px;
+      padding: 35px 0;
+      position: relative;
+  
+      i {
+        font-size: 105px;
+        width: 100%;
+        height: 100%;
+        @include absolute();
+      }
+  
+      &:last-of-type {
+        margin-right: 0;
+      }
+  
+      span {
+        font-size: 24px;
+        display: block;
+        line-height: 18px;
+        letter-spacing: 0.96px;
+        font-weight: 700;
+      }
+  
+      .smalltext {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+      }
+  
+      &:nth-of-type(1) {
+        i {
+          color: #00a3ee;
+        }
+      }
+  
+      &:nth-of-type(2) {
+        i {
+          color: #ffcf4a;
+          top: 2px;
+          @include transform(rotate(-148deg));
+        }
+      }
+  
+      &:nth-of-type(3) {
+        i {
+          color: #00c1c1;
+        }
+      }
+  
+      &:nth-of-type(4) {
+        i {
+          color: #ff6386;
+        }
+      }
+    }
+  }
+  
+  .ts-count-down {
+    padding: 0;
+    margin: -80px 0;
+    z-index: 1;
+  
+    .countdown {
+      margin-bottom: 0;
+  
+      &:before {
+        z-index: -1;
+        opacity: 1;
+      }
+  
+      .counter-item {
+        width: 25%;
+        float: left;
+        margin-right: 0;
+        border: none;
+        position: relative;
+        height: auto;
+  
+        span {
+          font-size: 64px;
+          font-weight: 700;
+          line-height: 64px;
+        }
+  
+        b {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          bottom: 0;
+          margin: auto;
+          font-size: 30px;
+          transform: translateY(-18%);
+        }
+      }
+    }
+  }
+  /* count down */
+  .countdown {
+    margin-bottom: 60px;
+  
+    .counter-item {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      @include border-radius(50%);
+      text-align: center;
+      color: $white-color;
+      margin-right: 18px;
+      padding: 35px 0;
+      position: relative;
+  
+      i {
+        font-size: 105px;
+        width: 100%;
+        height: 100%;
+        @include absolute();
+      }
+  
+      &:last-of-type {
+        margin-right: 0;
+      }
+  
+      span {
+        font-size: 24px;
+        display: block;
+        line-height: 18px;
+        letter-spacing: 0.96px;
+        font-weight: 700;
+      }
+  
+      .smalltext {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        padding-top: 8px;
+      }
+  
+      &:nth-of-type(1) {
+        i {
+          color: #00a3ee;
+        }
+      }
+  
+      &:nth-of-type(2) {
+        i {
+          color: #ffcf4a;
+          top: 2px;
+          @include transform(rotate(-148deg));
+        }
+      }
+  
+      &:nth-of-type(3) {
+        i {
+          color: #00c1c1;
+        }
+      }
+  
+      &:nth-of-type(4) {
+        i {
+          color: #ff6386;
+        }
+      }
+    }
+  }
+  
+  .ts-count-down {
+    padding: 0;
+    margin: -80px 0;
+    z-index: 1;
+  
+    .countdown {
+      margin-bottom: 0;
+  
+      &:before {
+        z-index: -1;
+        opacity: 1;
+      }
+  
+      .counter-item {
+        width: 25%;
+        float: left;
+        margin-right: 0;
+        border: none;
+        position: relative;
+        height: auto;
+  
+        span {
+          font-size: 64px;
+          font-weight: 700;
+          line-height: 64px;
+        }
+  
+        b {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          bottom: 0;
+          margin: auto;
+          font-size: 30px;
+          transform: translateY(-18%);
+        }
+      }
+    }
+  }

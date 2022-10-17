@@ -1,0 +1,102 @@
+<!-- ts schedule start-->
+<section class="ts-schedule">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="section-title">
+          <!-- <span>Schedule Details</span> -->
+          Checkout
+        </h2>
+      </div>
+      <!-- col end-->
+    </div>
+
+    <!-- row end-->
+    <div class="row px-2">
+      <div id="left_side" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div #paypal></div>
+      </div>
+
+      <div id="right_side" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="sticky" id="order_sum">
+          <h4 class="summary">Order Summary</h4>
+          <div *ngIf="regName != null">
+            <h4>Registration</h4>
+            <hr class="line" />
+            <div class="align">
+              {{ regName }}
+              <!-- packages[package_id].name  -->
+            </div>
+            <span class="price-label">Price: </span>
+            <span class="price"> {{ regPrice }} {{ currency }}</span>
+          </div>
+          <div *ngIf="workshops.length > 0">
+            <!--  -->
+            <h3 class="my-1">Workshops</h3>
+            <hr class="line" />
+            <ng-container  *ngFor=" let work of workshops; ">
+             
+                <div class="item" >
+                  {{ work.title }}
+                  
+                </div>
+                <span class="price-label">Price: </span>
+              <span  class="price">  {{ work.fees }} {{ currency }}</span>
+           
+              
+            </ng-container>
+            
+            
+          </div>
+          <hr class="line" />
+          <span class="price-label">Subtotal: </span>
+
+          <span class="price"> {{ subTotal }} {{ currency }}</span>
+          <br />
+          <hr class="line" />
+          <div class="subtotal">
+            Online Payment Fees <span class="price">+3% </span>
+          </div>
+
+          <hr class="line" />
+          <div class="total-banner">
+            <span class="price-label">Total: </span>
+
+            <span class="price">{{ total }} {{ currency }}</span>
+          </div>
+          <div class="coupon-div my-2">
+            <a
+              class="coupon-link"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              (click)="openDialog()"
+            >
+              Have a coupon code?
+            </a>
+            <!-- <p>If you have 50% coupon code, please apply it in the next page.</p> -->
+            <div
+              *ngIf="coupon == -1"
+              class="alert alert-danger text-center pt-1"
+            >
+              Invalid Coupon
+            </div>
+            <div
+              *ngIf="coupon == 1"
+              class="alert alert-success text-center pt-1"
+            >
+              Coupon applied successfully
+            </div>
+          </div> 
+        </div>
+        <!--div style="padding: 14px">Please note that we are currently accepting only wire transfer & cash deposit as online payment is still under process.</div-->
+        <br />
+
+        <!--old footer--->
+        <div class="row"></div>
+      </div>
+    </div>
+    <br />
+  </div>
+  <!-- container end-->
+</section>
+<!-- ts schedule end-->

@@ -1,0 +1,60 @@
+.live-overlay {
+  /* background-color: black; */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  bottom: 32px;
+}
+.corner-top-left {
+  /* background-color: black; */
+  position: absolute;
+  height: 73px;
+  width: 600px;
+  left: 0px;
+  top: 0px;
+}
+.corner-top-right {
+  /* background-color: black; */
+  position: absolute;
+  height: 73px;
+  width: 300px;
+  right: 0px;
+  top: 0px;
+}
+.corner-bottom-right {
+  /* background-color: black; */
+  position: absolute;
+  height: 30px;
+  width: 200px;
+  right: 50px;
+  bottom: 0px;
+}
+.corner-bottom-right-subscript {
+  /* background-color: black; */
+  position: absolute;
+  height: 130px;
+  width: 93px;
+  right: 00px;
+  bottom: 30px;
+}
+.corner-top-left-mobile {
+  height: 52px;
+
+  /* background-color: black; */
+  position: absolute;
+
+  width: 600px;
+  left: 0px;
+  top: 0px;
+}
+.corner-top-right-mobile {
+  height: 52px;
+
+  /* background-color: black; */
+  position: absolute;
+
+  width: 300px;
+  right: 0px;
+  top: 0px;
+}

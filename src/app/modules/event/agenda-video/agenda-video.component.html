@@ -1,0 +1,39 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center">
+        <a (click)="backClicked()" class="btn-back btn" style="color: #fff"
+          >Back to Recorded sessions</a
+        >
+        <br />
+        <br />
+
+        <div
+          class="embed-responsive embed-responsive-16by9"
+          *ngIf="video != null"
+        >
+          <!-- src="https://www.youtube.com/embed/urAsvBX0ctw?autoplay=1&rel=0" -->
+          <iframe
+            class="embed-responsive-item"
+            [src]="video | safeUrl"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            frameborder="0"
+            allow="autoplay"
+            allowfullscreen
+          ></iframe>
+          <div class="corner-bottom-right"></div>
+          <div class="corner-bottom-right-subscript"></div>
+          <div class="corner-top-right d-none d-lg-block"></div>
+          <div class="corner-top-left d-none d-lg-block"></div>
+
+          <div class="corner-top-right-mobile"></div>
+          <div class="corner-top-left-mobile"></div>
+
+          <!-- <div class="live-overlay d-none d-lg-block"></div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Container end -->
+  </div>
+</section>

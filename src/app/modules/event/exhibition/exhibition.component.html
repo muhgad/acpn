@@ -1,0 +1,234 @@
+<!-- ts sponsors start-->
+<section id="ts-sponsors" class="ts-sponsors">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title ">
+          <!-- <span>Listen to the</span> -->
+          <!-- Sponsors -->
+        </h2>
+        <!-- <div>Please click on a logo to visit the exhibition booth</div> -->
+      </div>
+      <!-- col end-->
+    </div>
+   
+
+    <div *ngIf="showSpinner" class="row">
+      <div class="col-lg-12 text-center">
+        <br /><br /><br />
+
+        <app-loading-spinner></app-loading-spinner>
+        
+     
+      </div>
+    </div>
+    <div *ngIf="cats_length == 0 && showSpinner == false" class="row">
+      <div class="col-lg-12 text-center">
+        <br /><br /><br />
+
+        Data will be updated soon
+      </div>
+    </div>
+
+    <!--/ Title row end -->
+    <div *ngIf="classified == true && cats_length > 0">
+      <div class="sponsors-wrap" *ngFor="let cat of cats">
+        <h3 *ngIf="classified" class="sponsor-title text-center py-4">
+          <strong
+            style="background-color: #316794; padding: 10px 25px; color: #fff"
+          >
+            {{ cat.title }}</strong
+          >
+        </h3>
+        <div class="row sponsor-padding text-center">
+          <!-- <div class="col-12"> -->
+          <ng-container *ngFor="let one of cat.exhs">
+            <ng-container *ngIf="one.type_link == 'None'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a [routerLink]="['/', 'exhibition']" class="sponsors-logo1">
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="one.type_link == 'Booth'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a
+                  [routerLink]="['/', 'booth', one.slug]"
+                  class="sponsors-logo1"
+                >
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="one.type_link == 'Pdf'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a
+                  href="{{ imageLink }}/exhibition/{{ one.pdf }}"
+                  target="_blank"
+                  class="sponsors-logo1"
+                >
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="one.type_link == 'Pdf-Link'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a
+                  href="{{ one.pdf_link }}"
+                  target="_blank"
+                  class="sponsors-logo1"
+                >
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="one.type_link == 'Vimeo'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a
+                  (click)="openDialog(one.vimeo, 'Vimeo')"
+                  class="sponsors-logo1"
+                >
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="one.type_link == 'Youtube'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a
+                  (click)="openDialog(one.youtube, 'Youtube')"
+                  class="sponsors-logo1"
+                >
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="one.type_link == 'ImageNewPage'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a
+                  href="{{ imageLink }}/exhibition/{{ one.image }}"
+                  target="_blank"
+                  class="sponsors-logo1"
+                >
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="one.type_link == 'ImagePopup'">
+              <div class="col-md-4 px-0 text-center col-centered">
+                <a
+                  (click)="openDialog(imageLink + '/exhibition/' + one.image)"
+                  class="sponsors-logo1"
+                >
+                  <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+                </a>
+              </div>
+            </ng-container>
+          </ng-container>
+          <!-- </div> -->
+          <!-- Col 2 end -->
+        </div>
+      </div>
+    </div>
+    <div *ngIf="classified == false && cats_length > 0">
+      <!-- sponsors-wrap -->
+      <div class="row">
+        <ng-container *ngFor="let one of cats">
+          <ng-container *ngIf="one.type_link == 'None'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a
+                [routerLink]="['/', 'exhibition']"
+                class="sponsors-logo1 mx-auto text-center"
+              >
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="one.type_link == 'Booth'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a [routerLink]="['/', 'booth', one.slug]" class="sponsors-logo1">
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="one.type_link == 'Pdf'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a
+                href="{{ imageLink }}/exhibition/{{ one.pdf }}"
+                target="_blank"
+                class="sponsors-logo1"
+              >
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="one.type_link == 'Pdf-Link'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a
+                href="{{ one.pdf_link }}"
+                target="_blank"
+                class="sponsors-logo1"
+              >
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="one.type_link == 'Vimeo'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a
+                (click)="openDialog(one.vimeo, 'Vimeo')"
+                class="sponsors-logo1"
+              >
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="one.type_link == 'Youtube'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a
+                (click)="openDialog(one.youtube, 'Youtube')"
+                class="sponsors-logo1"
+              >
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="one.type_link == 'ImageNewPage'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a
+                href="{{ imageLink }}/exhibition/{{ one.image }}"
+                target="_blank"
+                class="sponsors-logo1"
+              >
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="one.type_link == 'ImagePopup'">
+            <div class="col-md-4 px-0 text-center col-centered">
+              <a
+                (click)="openDialog(imageLink + '/exhibition/' + one.image)"
+                class="sponsors-logo1"
+              >
+                <img src="{{ imageLink }}/exhibition/{{ one.logo }}" alt="" />
+              </a>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <!--/ Content row 1 end -->
+
+    <!-- <div class="row">
+      <div class="col-lg-12 mx-auto">
+        <div class="general-btn text-center">
+          <a class="btn" href="#">Become A Sponsor</a>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Content row 3 end -->
+  </div>
+  <!--/ Container end -->
+</section>
+<!-- ts ts sponsors end-->

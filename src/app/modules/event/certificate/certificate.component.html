@@ -1,0 +1,37 @@
+<!-- ts schedule start-->
+<section class="ts-schedule">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="section-title">Certificate</h2>
+      </div>
+    </div>
+    <!-- row end-->
+    <div class="row" *ngIf="certApprove == false">
+      <div class="col-lg-12 text-center">
+        <!-- Certificates will be available after the conference. -->
+        If you are eligible for CME certificate, your certificate will be
+        available for download right after the conference closing.
+        <!-- You certificate is not approved,
+          <a [routerLink]="['/', 'contact']">please contact the organizer.</a> -->
+      </div>
+    </div>
+    <br />
+    <div class="row" *ngIf="certApprove == true">
+      <div class="col-lg-12 text-center">
+        You certificate is approved,
+        <a
+          [href]="certificateUrl | safeUrl"
+          style="cursor: pointer"
+          class="p-2"
+          download
+          target="_blank"
+          >click here to download .</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- container end-->
+</section>
+<!-- ts schedule end-->

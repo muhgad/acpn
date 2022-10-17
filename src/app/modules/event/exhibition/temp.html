@@ -1,0 +1,39 @@
+ <a-scene embedded>
+      <!-- Asset Managment System -->
+      <!-- <a-assets (loaded)="loaded($event)" timeout="9000"> -->
+      <!-- <a-assets (loaded)="loaded($event)"> -->
+      <a-assets>
+        <!-- <a-asset-item id="model" [attr.src]="file"></a-asset-item> -->
+        <!-- <a-asset-item id="model2" src="VC.gltf"></a-asset-item> -->
+        <a-asset-item id="bg" src="../../bg.jpg"></a-asset-item>
+        <img
+          id="#bg"
+          crossorigin="anonymous"
+          src="https://i.imgur.com/mYmmbrp.jpg"
+        />
+
+        <!-- <a-assets-item id="exh2-o" src="./exh2.obj"></a-assets-item>
+        <a-assets-item id="exh2-m" src="./exh2.mtl"></a-assets-item> -->
+        <!-- <a-assets-item
+          id="exh2-o"
+          src="assets/event/exh/events_3D_ALL.obj"
+        ></a-assets-item>
+        <a-assets-item
+          id="exh2-m"
+          src="assets/event/exh/events_3D_ALL.mtl"
+        ></a-assets-item>-->
+        <a-asset-item
+          id="cityModel"
+          src="https://cdn.aframe.io/test-models/models/glTF-2.0/virtualcity/VC.gltf"
+        ></a-asset-item>
+        <!-- <a-assets-item id="booth2" src="../event_all.gltf"></a-assets-item> -->
+      </a-assets>
+      <!-- <a-entity *ngIf="isLoaded" gltf-model="#model2"></a-entity> -->
+      <a-box src="#boxTexture" color="#000000"></a-box>
+      <!-- <a-entity
+        obj-model="obj: #exh2-o; mtl: #exh2-m"
+        position="-10 0 50"
+        scale="0.5 0.5 0.5"
+        rotation="0 0 0"
+      ></a-entity> -->
+    </a-scene>

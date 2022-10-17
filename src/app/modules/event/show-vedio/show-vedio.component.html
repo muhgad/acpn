@@ -1,0 +1,24 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+
+      <div class="col text-center">
+        <a (click)="backClicked()" class="btn-back btn">Back to booth</a>
+        <br />
+        <br />
+
+        <iframe
+          width="560"
+          height="315"
+          [src]="link | safeUrl"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Container end -->
+  </div>
+</section>

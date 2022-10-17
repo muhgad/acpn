@@ -1,0 +1,43 @@
+section,
+.section-padding {
+  padding: 0 0;
+}
+.con {
+  margin-top: 250px;
+}
+
+.banner-item {
+  min-height: 750px;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+}
+@media screen and (max-width: 425px) {
+  .con {
+    margin-top: 160px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .con {
+    margin-top: 200px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .con {
+    margin-top: 250px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .con {
+    margin-top: 240px;
+  }
+}
+
+.counter-item {
+  background-color: rgba(0, 0, 0, 0.4);
+}

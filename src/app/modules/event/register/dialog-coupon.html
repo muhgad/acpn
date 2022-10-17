@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Have a coupon code?</h1>
+<div mat-dialog-content>
+  <!-- <p>Coupon Code:</p> -->
+  <mat-form-field>
+    <mat-label>Coupon Code:</mat-label>
+    <input matInput [(ngModel)]="data.coupon" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="data.coupon" cdkFocusInitial>
+    Apply
+  </button>
+</div>

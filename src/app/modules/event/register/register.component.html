@@ -1,0 +1,587 @@
+<!-- ts schedule start-->
+<section class="ts-schedule">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="section-title">
+          <!-- <span>Schedule Details</span> -->
+          <br />
+          Registration
+        </h2>
+      </div>
+      <!-- col end-->
+    </div>
+
+    <!-- row end-->
+    <div class="row px-2">
+      <div id="left_side" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+      <form #f="ngForm" (ngSubmit)="onSummit(f)">
+        <div class="row" id="content">
+          <div id="left_side" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group">
+              <label for="Title">Title <span class="red">*</span></label>
+              <select
+                name="title"
+                ngModel
+                #title="ngModel"
+                class="form-control"
+                id="Title"
+                required
+              >
+                <option value="">Select</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+              </select>
+
+              <div
+                *ngIf="
+                  (title.value == '' && title.dirty) ||
+                  (f.submitted && title.value == '')
+                "
+                class="alert alert-danger"
+              >
+                Title is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">First name <span class="red">*</span></label>
+              <input
+                name="name"
+                type="text"
+                ngModel
+                #name="ngModel"
+                class="form-control"
+                id="name"
+                required
+                minlength="3"
+              />
+              <div
+                *ngIf="
+                  (name.invalid && name.dirty) || (f.submitted && name.invalid)
+                "
+              >
+                <div *ngIf="name.errors!.required" class="alert alert-danger">
+                  First name is required
+                </div>
+
+                <div *ngIf="name.errors!.minlength" class="alert alert-danger">
+                  First name minimum length must be 3 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label" for="lname"
+                >Last name <span class="red">*</span></label
+              >
+              <input
+                name="lname"
+                type="text"
+                ngModel
+                #lname="ngModel"
+                class="form-control"
+                id="lname"
+                required
+                minlength="3"
+              />
+              <div
+                *ngIf="
+                  (lname.invalid && lname.dirty) ||
+                  (f.submitted && lname.invalid)
+                "
+              >
+                <div *ngIf="lname.errors!.required" class="alert alert-danger">
+                  Last name is required
+                </div>
+
+                <div *ngIf="lname.errors!.minlength" class="alert alert-danger">
+                  Last name minimum length must be 3 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Email">Email <span class="red">*</span></label>
+              <input
+                name="email"
+                ngModel
+                #email="ngModel"
+                type="email"
+                class="form-control"
+                id="Email"
+                required
+                email
+                [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+              />
+              <p class="text-muted">
+                It’s recommeded to use your personal email address to avoid
+                firewall restrictions.
+              </p>
+
+              <div
+                *ngIf="
+                  (email.invalid && email.dirty) ||
+                  (f.submitted && email.invalid)
+                "
+                class="alert alert-danger"
+              >
+                <div *ngIf="email.errors!.required">Email is required</div>
+                <div *ngIf="email.errors!.email">
+                  Email must be a valid email address
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Mobile">Mobile <span class="red">*</span></label>
+              <input
+                name="mobile"
+                ngModel
+                #mobile="ngModel"
+                type="text"
+                required
+                class="form-control"
+                id="Mobile"
+                [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"
+              />
+              <div
+                *ngIf="
+                  (mobile.invalid && mobile.dirty) ||
+                  (f.submitted && mobile.invalid)
+                "
+                class="alert alert-danger"
+              >
+                Mobile is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Specialty">Specialty<span class="red">*</span></label>
+              <select
+                name="specialty_id"
+                ngModel
+                #specialty_id="ngModel"
+                class="form-control"
+                id="Specialty"
+                required
+              >
+                <!--  -->
+                <option value="">-- Select --</option>
+                <ng-container *ngFor="let spec of specialties">
+                  <option value="{{ spec.id }}">{{ spec.name }}</option>
+                  <!-- <ng-template *ngIf="spec.subs.length > 0">
+                    <optgroup value="" label="">
+                      <option *ngFor="let sub of spec.subs" value="{{ sub.id }}">{{
+                        sub.name
+                      }}</option>
+                    </optgroup>
+                  </ng-template> -->
+                </ng-container>
+              </select>
+              <div
+                *ngIf="
+                  (specialty_id.value == '' && specialty_id.dirty) ||
+                  (f.submitted && specialty_id.value == '')
+                "
+                class="alert alert-danger"
+              >
+                Specialty is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Institute">Clinic</label>
+              <input
+                name="institute"
+                ngModel
+                type="text"
+                class="form-control"
+                id="Institute"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Country">Country <span class="red">*</span></label>
+              <select
+                name="country_id"
+                ngModel
+                #country_id="ngModel"
+                class="form-control"
+                id="Country"
+                #mySelect
+                required
+                (change)="getCity(mySelect.value)"
+              >
+                <option value="">-- Select --</option>
+                <option *ngFor="let count of countries" value="{{ count.id }}">
+                  {{ count.name }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  (country_id.value == '' && country_id.dirty) ||
+                  (f.submitted && country_id.value == '')
+                "
+                class="alert alert-danger"
+              >
+                Country is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="City">City <span class="red">*</span></label>
+              <select
+                name="city_id"
+                ngModel
+                #city_id="ngModel"
+                class="form-control"
+                id="City"
+                required
+              >
+                <option value="">-- Select --</option>
+
+                <option *ngFor="let cit of cities" value="{{ cit.id }}">
+                  {{ cit.name }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  (city_id.value == '' && city_id.dirty) ||
+                  (f.submitted && city_id.value == '')
+                "
+                class="alert alert-danger"
+              >
+                City is required
+              </div>
+            </div>
+            <div style="display: none" class="form-group">
+              <label for="Address">Address</label>
+              <input
+                name="address"
+                ngModel
+                ngModeltype="text"
+                class="form-control"
+                id="Address"
+              />
+            </div>
+
+            <div style="display: block" class="form-group">
+              <!-- <label for="Package"
+                >Registration <span class="red">*</span></label
+              > -->
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr class="table-primary">
+                      <th scope="col" colspan="3">
+                        Registration <span class="red">*</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="
+                        let pack of packages;
+                        index as i;
+                        first as isFirst
+                      "
+                    >
+                      <td scope="row">
+                        <strong>{{ pack.name }}</strong> <br /><span
+                          class="line-breaker"
+                          >{{ pack.desc }}</span
+                        >
+                      </td>
+
+                      <td style="width: 20%">
+                        <!-- <div *ngIf="isFirst" class="alert alert-danger">
+                          checked
+                        </div> -->
+                        <input
+                          type="radio"
+                          value="{{ pack.id }}"
+                          name="package_id"
+                          [checked]="package_id === pack.id"
+                          (change)="selectPackage()"
+                          (change)="package_id = $event.target.value"
+                        />
+
+                        <!--
+                           
+                          id="package{{ i }}"
+                          name="package_id"
+                          
+                          [(ngModel)]="package_id"
+                          
+                          (change)="selectPackage($event)" -->
+                        <!-- [attr.checked]="pack.id == package_id" -->
+                        <!-- [(ngModel)]="conference.packages[i].selected" -->
+                        <label for="package{{ i }}"
+                          >&nbsp;
+                          <ng-container *ngIf="pack.fees">
+                            {{ pack.fees }}
+                            {{ conference.currency }}
+                          </ng-container>
+                          <ng-container *ngIf="!pack.fees"> Free </ng-container>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- {{ package_id }} -->
+                <div
+                  *ngIf="f.submitted && package_id == null"
+                  class="alert alert-danger"
+                >
+                  Registration is required
+                </div>
+              </div>
+            </div>
+            <div *ngIf="workshops_num > 0" class="form-group">
+              <!-- <label for="Package"
+                >Registration <span class="red">*</span></label
+              > -->
+              <div class="table-responsive">
+                <input type="hidden" name="w_ids[]" />
+                <table class="table table-striped">
+                  <thead>
+                    <tr class="table-primary">
+                      <th scope="col" colspan="3">Pre-Conference Workshops (Jan 13)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="
+                        let work of workshops;
+                        index as i;
+                        first as isFirst
+                      "
+                    >
+                      <th scope="row">{{ work.title }}</th>
+
+                      <td>
+                        <!-- <div *ngIf="isFirst" class="alert alert-danger">
+                          checked
+                        </div> -->
+                        <input
+                          type="checkbox"
+                          value="{{ work.id }}"
+                          name="workshop_id"
+                          id="workshop{{ i }}"
+                          (change)="changeWorkshop($event)"
+                        />
+                        <!--
+                          (change)="workshop_id = $event.target.value" 
+                          
+                         [checked]="workshop_id === work.id"
+                          (change)="selectPackage()"
+                          name="package_id"
+                          
+                          [(ngModel)]="package_id"
+                          
+                          (change)="selectPackage($event)" -->
+                        <!-- [attr.checked]="pack.id == package_id" -->
+                        <!-- [(ngModel)]="conference.packages[i].selected" -->
+                        <label for="workshop{{ i }}"
+                          >&nbsp;
+                          {{ work.fees }}
+                          {{ conference.currency }}</label
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- {{ package_id }} -->
+               
+              </div>
+            </div>
+            <div style="display: none" class="form-group">
+              <label for="Address">Special Requirements</label>
+              <textarea
+                name="special_requirement"
+                ngModel
+                ngModeltype="text"
+                placeholder="Special Requirements"
+                class="form-control"
+              ></textarea>
+            </div>
+
+            <div class="form-group form-check">
+              <input
+                name="mail_list"
+                ngModel
+                type="checkbox"
+                class="form-check-input"
+                value="Yes"
+                id="maillist"
+              />
+              <label class="form-check-label" for="maillist"
+                >I accept to receive email notifications about future
+                events.</label
+              >
+            </div>
+            <!-- {{ f.value | json }} -->
+            <!-- {{ conference | json }} -->
+          </div>
+
+          <!-- <div
+            style="display: none"
+            id="right_side"
+            class="col-xs-12 col-sm-12 col-md-4 col-lg-4"
+          >
+            <div class="sticky" id="order_sum">
+              <h4 class="summary">Order Summary</h4>
+              <div *ngIf="package_id != null">
+                <h4>Registration</h4>
+                <hr class="line" />
+                <div class="align">
+                  {{ regName }}
+                
+                </div>
+                <span class="price-label">Price: </span>
+                <span class="price"> {{ regPrice }} {{ currency }}</span>
+              </div>
+              
+
+
+              <hr class="line" />
+              <span class="price-label">Subtotal: </span>
+
+              <span class="price"> {{ subTotal }} {{ currency }}</span>
+              <br />
+              <hr class="line" />
+              <div class="subtotal">
+                Online Payment Fees <span class="price">+3% </span>
+              </div>
+
+              <hr class="line" />
+              <div class="total-banner">
+                <span class="price-label">Total: </span>
+
+                <span class="price">{{ total }} {{ currency }}</span>
+              </div>
+              <div class="coupon-div">
+                <a
+                  class="coupon-link"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  (click)="openDialog()"
+                >
+                  Have a coupon code?
+                </a>
+              </div>
+            </div>
+          
+            <br />
+
+           
+            <div class="row"></div>
+          </div> -->
+
+          <!-- #END the order summry container -->
+        </div>
+
+        <input type="hidden" name="rule_id" ngModel="1" />
+        <input
+          type="hidden"
+          name="conference_id"
+          ngModel="{{ conference_id }}"
+        />
+     
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
+      <div id="right_side" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pt-5">
+        <div class="sticky" id="order_sum">
+          <h4 class="summary">Order Summary</h4>
+          <div *ngIf="regName != null">
+            <h3  class="my-1" >Registration</h3>
+            <hr class="line" />
+            <div class="item">
+              {{ regName }}
+              <!-- packages[package_id].name  -->
+            </div>
+            <span class="price-label">Price: </span>
+            <span class="price"> {{ regPrice }} {{ currency }}</span>
+          </div>
+          <div *ngIf="workshop_ids.length > 0">
+            <!--  -->
+            <h3 class="my-1">Workshops</h3>
+            <hr class="line" />
+            <ng-container  *ngFor=" let work of workshops; ">
+              <ng-container *ngIf="workshop_has (work.id) ">
+                <div class="item" >
+                  {{ work.title }}
+                  
+                </div>
+                <span class="price-label">Price: </span>
+              <span class="price">  {{ work.fees }} {{ currency }}</span>
+              </ng-container>
+              
+            </ng-container>
+            
+            
+          </div>
+          <hr class="line" />
+          <span class="price-label">Subtotal: </span>
+
+          <span class="price"> {{ subTotal }} {{ currency }}</span>
+          <br />
+          <hr class="line" />
+          <div class="subtotal">
+            Online Payment Fees <span class="price">+3% </span>
+          </div>
+
+          <hr class="line" />
+          <div class="total-banner">
+            <span class="price-label">Total: </span>
+
+            <span class="price">{{ total }} {{ currency }}</span>
+          </div>
+           <div class="coupon-div my-2">
+            <a
+              class="coupon-link"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              (click)="openDialog()"
+            >
+              Have a coupon code?
+            </a>
+            <!-- <p>If you have 50% coupon code, please apply it in the next page.</p> -->
+            <div
+              *ngIf="coupon == -1"
+              class="alert alert-danger text-center pt-1"
+            >
+              Invalid Coupon
+            </div>
+            <div
+              *ngIf="coupon == 1"
+              class="alert alert-success text-center pt-1"
+            >
+              Coupon applied successfully
+            </div>
+          </div> 
+        </div>
+       
+        <br />
+
+        <!--old footer--->
+        <div class="row"></div>
+      </div>
+      <!-- {{ f.value | json }} -->
+      <!-- Include the PayPal JavaScript SDK -->
+
+      <!-- Set up a container element for the button -->
+    </div>
+    <br />
+    <div
+      *ngIf="f.submitted && result?.status == 'success'"
+      class="row alert alert-success"
+    >
+      {{ result.message }}
+    </div>
+    <div
+      *ngIf="f.submitted && result?.status == 'error'"
+      class="row alert alert-danger"
+    >
+      {{ result.message }}
+    </div>
+  </div>
+  <!-- container end-->
+</section>
+<!-- ts schedule end-->

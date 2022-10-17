@@ -1,0 +1,294 @@
+<!-- ts schedule start-->
+<section id="schedule" style="background-color: #f5f8fb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mx-auto text-center">
+        <span class="section-title-span"> The conference timezone is set to (GMT+4)</span>
+        <h2 class="section-title">
+          Event Schedules
+        </h2><br/><br/>
+        <a
+          *ngIf="pdfUrl != '' "
+          style="cursor: pointer"
+          class="p-2"
+          href="{{ imageLink }}/agendas/{{ pdfUrl }}"
+          download
+          target="_blank"
+        >
+          Download PDF
+        </a>
+        <br /><br />
+        <div *ngIf="dataExist && agenda.length > 0" class="col-md-3 mx-auto">
+          <!--  (keyup)="doSearch()" -->
+          <input    (keyup)="LocalSearch()"
+           class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search by topic or speaker  ">
+          <br />
+        </div>
+        <!-- Start Result -->
+        <div *ngIf="searchText.trim() != '' ">
+<div *ngIf=" searchResultExist == 'no' && searchText.length > 0  " class="col-4 mx-auto" >
+
+  <div class="alert alert-warning" role="alert">
+    There are no search results
+  </div>
+</div>
+          <table *ngIf="searchResultExist == 'yes' "  class="table table-bordered  border">
+              <tr>
+                  <th>Hall</th>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Title</th>
+                  <th>Speakers</th>
+                  <th>Add to calender</th>
+              </tr>  
+              <!-- searchResult -->
+              <ng-container *ngFor="let act of agendaRows  " >
+                <!-- (click)="openRowAgenda(act.start_time_iso , act.hall)" -->
+      <tr   >
+       
+        <td>
+          <p >  {{hallsTitles.get(act.hall)}}</p>
+        </td>
+         
+         
+          <td>{{ act.start_time_iso| date: "d MMM y"  }}</td>
+          
+        
+          <td> {{ act.start_time_iso | date: "HH:mm"  }}-{{ act.end_time_iso | date: "HH:mm" }}</td>
+          <td>{{ act.title }}</td>
+          <td>{{ act.location }}</td>
+          <td><a href="https://app.medicalevents.tv/activities/{{act.id}}/ico_download" download class="add_calender">
+           
+            <img title="Add to calendar" src="assets/event/cal_add.png" style="width: 50px;">
+          </a></td>
+      </tr>
+    </ng-container>
+          </table>
+      </div>
+        <!-- End Result -->
+
+        <div *ngIf="!dataExist" class="row">
+          <div class="col-lg-12 text-center">
+
+            <br /><br /><br />
+
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+        </div>
+        <div *ngIf="dataExist" class="ts-schedule-nav">
+         <!-- justify-content-center -->
+          
+ <!--Start tab days -->
+ <ng-container >
+   <div class="row agenda" >
+    <ng-container *ngFor="let agen of agenda; let first = first; let index = index">
+    <div class="col-sm day  px-0">
+      <a
+      [class.active]="index == active_day"
+      title=" "
+      (click)="open_day(index,agen.halls)"
+      
+    >
+      <h3>
+        {{ agen.title }}
+      </h3>
+      <span>
+        {{ agen.start_date | date: "EEEE" }}
+        {{ agen.start_date | date: "d MMMM" }}
+      </span>
+
+      <!-- <h3>
+        {{ agen.start_date | date: "d MMMM" }}
+      </h3>
+      <span> {{ agen.start_date | date: "EEEE" }} </span> -->
+    </a>
+     </div>
+    </ng-container> 
+   </div>
+ </ng-container>
+ <!--Start tab days -->
+          <!--Start tab halls -->
+          <ng-container *ngFor="let agen of agenda; let first = first; let index = index">
+            <!-- *ngIf="" -->
+            <div  class="row agenda" *ngIf="agen.halls.length > 1 && active_day == index">
+            
+              <div class="col day px-0" *ngFor="let hal of agen.halls; let first = first">
+                
+                <a
+                [class.active]="active_day == index  && active_hall == hal"
+                title=" "
+                (click)="open_hall(index,hal)"
+               
+              >
+                <h3>
+                 
+                  {{hallsTitles.get(hal)}}
+                </h3>
+              </a>
+              </div>
+          </div>
+        </ng-container>
+          <!--End tab halls -->
+
+        </div>
+      </div>
+      <!-- col end-->
+    </div>
+    <!-- row end-->
+    <div *ngIf="dataExist && agenda.length == 0" class="row">
+      <div class="col-lg-12">
+        <div class="col-lg-12 text-center">Data will be updated soon</div>
+        <br />
+        <br />
+        <br />
+      </div>
+      </div>
+    <div *ngIf="dataExist && agenda.length > 0" class="row">
+      <div class="col-lg-12 px-0">
+        <div class="tab-content schedule-tabs">
+          <ng-container *ngFor="let agen of agenda; let first = first; let index = index">
+            <!-- start halls -->
+            <ng-container *ngFor="let onehall of agen.halls; " >
+            <div
+              role="tabpanel"
+              class="tab-pane"
+              [class.active]="active_day == index  && active_hall == onehall"
+            
+            >
+           
+
+           
+              <ng-container *ngFor="let act of agen.activities " >
+                <ng-container *ngIf="act.hall == onehall">
+                    <!-- start putactivity in hall -->
+                <div class="schedule-listing" *ngIf="act.type == 'Lecture'">
+                  <div class="schedule-slot-time">
+                    <span>
+                      {{ act.start_time_iso | date: "HH:mm"  }} -
+                      {{  act.end_time_iso | date: "HH:mm"  }}
+                      
+                    </span>
+                    <!-- <span>
+                      {{ act.start_time_iso | toDateObj | date: "hh:mm" }} -
+                      {{ act.end_time_iso | toDateObj | date: "hh:mm aaa" }}
+                    </span> -->
+                    (GMT+4)
+                    <!-- Lecture -->
+                  </div>
+                  <div class="schedule-slot-info">
+                    <!-- <a  *ngFor="let speaker of act.speakers;let index =index">
+                     
+                      <img
+                     
+                        class="schedule-slot-speakers "
+                  
+                        [ngClass]="act.speakers.length > 1 ? 'speaker'+(index+1) : ''"
+                        src="{{imageLink}}/personals/{{speaker.photo}}"
+                        alt=""
+                       
+                        matTooltipPosition="above"
+                        matTooltipHideDelay="500"
+      matTooltip="{{speaker.title }}{{speaker.fname }} {{speaker.lname }}"
+      [matTooltipClass]="'my-tooltip'"
+                      />
+                    </a> -->
+                   
+                    <div class="schedule-slot-info-content">
+                      <h3 class="schedule-slot-title">
+                        {{ act.title }}
+                        <strong *ngIf="act.location"
+                          >@ {{ act.location }}</strong
+                        >
+                       
+                        <a style="cursor: grab;">
+                          <img  *ngIf="act.status == 'Live'" [routerLink]="['/','live',act.hall ]" src="/assets/event/live1.gif" style="width: 60px"/>
+                        </a>
+                        
+                        <a [routerLink]="['/','recorded-video',act.id,act.video_link ]" *ngIf="act.status == 'RecordedSession'" class="recordedBtn" >View Record</a>
+                      </h3>
+                      
+                      
+
+                      <!-- <p>
+                        How you transform your business as technology, consumer,
+                        habits industry dynamics change? Find out from those
+                        leading the charge. How you transform
+                      </p> -->
+                    </div>
+                   <!-- Start add to calender -->
+                   <div style="text-align: right">
+                      
+                    <a href="https://app.medicalevents.tv/activities/{{act.id}}/ico_download"  download class="add_calender">
+                      <img src="assets/event/cal_add.png" style="width: 50px;">
+                    </a>
+                  </div>
+                  <!-- End add to calender -->
+                    <!--Info content end -->
+                  </div>
+                  <!-- Slot info end -->
+                </div>
+                <!--schedule-listing end -->
+
+                <div
+                  class="schedule-listing launce"
+                  *ngIf="act.type == 'String' || act.type == 'Session'"
+                >
+                  <div class="schedule-slot-time">
+                    <span>
+                      {{ act.start_time_iso | date: "HH:mm"  }} -
+                      {{  act.end_time_iso | date: "HH:mm"  }}
+                    </span>
+                    <!-- Session -->
+                    (GMT+4)
+                    <!-- <span>
+                      {{ act.start_time_iso  }} -
+                      {{ act.end_time_iso  }}
+                    </span> -->
+                  </div>
+                  <div class="schedule-slot-info">
+                    <div class="schedule-slot-info-content">
+                      <h3 class="schedule-slot-title">
+                        {{ act.title }}
+                        <strong *ngIf="act.location"
+                          >@ {{ act.location }}</strong
+                        >
+                      </h3>
+                      
+                      <!-- <a href="#">
+                        <img src="assets/images/schedule_lunch.png" alt="" />
+                      </a> -->
+                      <a [routerLink]="['/','recorded-video',act.id,act.video_link ]" *ngIf="act.status == 'RecordedSession'" class="recordedBtn" >View Record</a>
+                    </div>
+                    <!-- Start add to calender -->
+                    <div style="text-align: right">
+                      
+                      <a href="https://app.medicalevents.tv/activities/{{act.id}}/ico_download"  download class="add_calender">
+                        <img src="assets/event/cal_add.png" style="width: 50px;">
+                      </a>
+                    </div>
+                    <!-- End add to calender -->
+                    <!--Info content end -->
+                  </div>
+                  <!-- Slot info end -->
+                </div>
+                <!--schedule-listing end -->
+
+                <!-- End putactivity in hall -->
+              </ng-container>
+            </ng-container>
+             
+            </div>
+            <!-- end halls -->
+          </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+  </div>
+  <!-- container end-->
+</section>
+<!-- ts schedule end-->

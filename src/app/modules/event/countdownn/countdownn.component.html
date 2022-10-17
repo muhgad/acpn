@@ -1,0 +1,193 @@
+<!-- banner start-->
+<section class="hero-area centerd-item1" id="downcount">
+  <div
+    class="banner-item2"
+    style="background-image: url(./assets/event/banner3.jpg)"
+  >
+    <!-- <div class="top_spon text-center">
+      <a [routerLink]="['/', 'exhibition']">
+        <img src="assets/event/screen-up.png" alt="" />
+      </a>
+    </div>  -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8 mx-auto pt-0">
+          <div class="banner-content-wrap text-center">
+            <p class="banner-info">
+              <!-- {{ conference?.start_date | date: "d" }} to
+              {{ conference?.end_date | date: "d MMMM y" }}
+              {{ conference?.venue }}, {{ conference?.city_name }}  -->
+              <span
+                style="background-color: rgba(0, 0, 0, 0.5); padding: 3px 7px"
+              >
+                17th Feb 2021, Online Precongress Workshops</span
+              ><br />
+              <span
+                style="background-color: rgba(0, 0, 0, 0.5); padding: 4px 7px"
+              >
+                {{ con_date }}
+              </span>
+            </p>
+            <h1 class="banner-title">
+              <!-- {{ conference?.name }} -->
+              <span style="background-color: rgba(0, 0, 0, 0.5); padding: 5px">
+                {{ con_name }}</span
+              >
+            </h1>
+            <ng-container *ngIf="status == 'Open' && !livestream">
+              <app-timer (liveEvent)="receiveLive($event)"></app-timer>
+            </ng-container>
+
+            <div class="livenow" *ngIf="status == 'Open' && livestream">
+              <a class="" [routerLink]="['/', 'audi']">
+                <img
+                  src="assets/event/live1.gif"
+                  class=""
+                  style="width: 170px; margin-bottom: 55px"
+                />
+              </a>
+            </div>
+            <div
+              class="recoreded mx-auto"
+              *ngIf="status == 'PreRecordedSession'"
+            >
+              <a [routerLink]="['./', 'recorded-sessions']"
+                >Recorded sessions will be updated soon</a
+              >
+            </div>
+            <div class="recoreded mx-auto" *ngIf="status == 'RecordedSession'">
+              <a [routerLink]="['./', 'recorded-sessions']"
+                >Recorded sessions</a
+              >
+            </div>
+            <div
+              class="finished mx-auto expiredRecordedSession"
+              *ngIf="status == 'ExpiredRecordedSession'"
+            >
+              Access has already expired for this conference
+            </div>
+            <div class="finished mx-auto" *ngIf="status == 'Finished'">
+              The conference is finished.
+            </div>
+
+            <!-- Countdown end -->
+            <!-- -->
+            <!-- <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <div class="audi">
+                    <a
+                      *ngIf="status == 'RecordedSession'"
+                      [routerLink]="['/', 'recorded-sessions']"
+                    >
+                      <img src="assets/event/aud.png" style="width: 105px" />
+                    </a>
+                    <a
+                      *ngIf="status != 'RecordedSession'"
+                      [routerLink]="['/', 'audi']"
+                    >
+                      <img src="assets/event/aud.png" style="width: 105px" />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="ex">
+                    <a class="" [routerLink]="['/', 'exhibition']">
+                      <img
+                        src="assets/event/ex.png"
+                        class=""
+                        style="width: 105px"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="banner-btn">
+              <a href="#" class="btn">
+                Registration
+              </a>
+            </div> -->
+          </div>
+          <!-- <div class="banner-btn col-lg-6 mx-auto d-none d-lg-block reg">
+            <a class="mx-auto" [routerLink]="['/', 'register']">
+              <img src="assets/event/reg.png" class="img-fluid" />
+            </a>
+          </div> -->
+          <!-- <div class="row pt-5 justify-content-center">
+            <div class="col offset-md-4">
+              <div class="agenda d-none d-lg-block">
+                <a class="" [routerLink]="['/', 'agenda']">
+                  <img src="assets/event/agenda.png" class="img-fluid" />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="speaker d-none d-lg-block">
+                <a class="" [routerLink]="['/', 'speakers']">
+                  <img src="assets/event/speakers.png" class="img-fluid" />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="contact d-none d-lg-block">
+                <a class="" [routerLink]="['/', 'contact']">
+                  <img src="assets/event/contact.png" class="img-fluid" />
+                </a>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div> -->
+
+          <!-- Banner content wrap end -->
+        </div>
+
+        <!-- col end-->
+      </div>
+      <div class="row">
+        <div class="col-xl-3 mx-auto pt-5 d-none d-xl-block">
+          <div class="ex">
+            <a class="" [routerLink]="['/', 'exhibition3d']">
+              <img src="assets/event/exh.png" class="" style="width: 105px" />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-12 col-xl-6 text-center p-0">
+          <div class="banner-btn mx-auto col-sm-12 col-md-10 col-lg-9 p-0 reg">
+            <a
+              *ngIf="!user_login"
+              class="mx-auto"
+              [routerLink]="['/', 'login']"
+            >
+              <img src="assets/event/reg.png" class="img-fluid" />
+            </a>
+
+            <img
+              *ngIf="user_login"
+              src="assets/event/reg.png"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <div class="col-xl-3 mx-auto pt-5 d-none d-xl-block">
+          <div class="audi">
+            <a
+              *ngIf="status == 'RecordedSession'"
+              [routerLink]="['/', 'recorded-sessions']"
+            >
+              <img src="assets/event/aud.png" style="width: 105px" />
+            </a>
+            <a *ngIf="status != 'RecordedSession'" [routerLink]="['/', 'audi']">
+              <img src="assets/event/aud.png" style="width: 105px" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- row end-->
+    </div>
+    <!-- Container end -->
+  </div>
+</section>
+
+<!-- banner end-->

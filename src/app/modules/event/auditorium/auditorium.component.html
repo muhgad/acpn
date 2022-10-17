@@ -1,0 +1,23 @@
+<!-- ts schedule start-->
+<section *ngIf="!livenow" class="" style="background-color: #f6f6f4">
+  <div
+    class="banner-item"
+    style="background-image: url(./assets/event/prelive.jpg)"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="con">
+            <app-timer (liveEvent)="receiveLive($event)"></app-timer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-floud">
+      <div class="row"></div>
+    </div>
+  </div>
+</section>
+<!-- <ng-container *ngIf="livenow">
+  <app-live-test></app-live-test>
+</ng-container> -->

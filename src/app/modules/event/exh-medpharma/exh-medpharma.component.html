@@ -1,0 +1,114 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+      <div class="col text-center">
+        <div style="position: absolute">
+          <a (click)="backClicked()" style="color: #fff"
+            ><img
+              src="/assets/event/exh/3d/white.svg"
+              style="width: 26px; margin: 15px"
+          /></a>
+          &nbsp;&nbsp;&nbsp;
+          <a [routerLink]="['', 'audi']" style="color: #fff"
+            ><img src="/assets/event/live1.gif" style="width: 80px"
+          /></a>
+          &nbsp;&nbsp;&nbsp;
+          <a
+            href="https://api.whatsapp.com/send?phone=00971552044203"
+            target="_blank"
+          >
+            <img
+              src="/assets/event/whatsapp.png"
+              style="width: 60px; padding: 7px"
+            />
+          </a>
+        </div>
+        <div class="d_1241">
+          <img
+            src="assets/event/exh/medpharma_booth.png"
+            alt="Workplace"
+            usemap="#workmap"
+            width="1241px"
+            height="770px"
+          />
+          <map name="workmap">
+            <area
+              shape="rect"
+              coords="531,295,651,457"
+              alt=""
+              [routerLink]="['', 'exh-medpharma']"
+              (click)="openDialog(link1)"
+            />
+            <!-- [routerLink]="['', 'show-image', link1]" -->
+            <area
+              shape="rect"
+              coords="687,295,810,457"
+              alt=""
+              [routerLink]="['', 'exh-medpharma']"
+              (click)="openDialog(link2)"
+            />
+
+            <!-- <area shape="rect" coords="323,265,453,338" alt="vedio" /> -->
+          </map>
+        </div>
+        <div class="d_768">
+          <img
+            src="assets/event/exh/medpharma_booth_768.png"
+            alt="Workplace"
+            usemap="#workmap_768"
+            width="768px"
+            height="477px"
+          />
+
+          <map name="workmap_768">
+            <area
+              shape="rect"
+              coords="329,182,403,283"
+              alt=""
+              [routerLink]="['', 'exh-medpharma']"
+              (click)="openDialog(link1)"
+            />
+            <!-- [routerLink]="['', 'show-image', link1]" -->
+            <area
+              shape="rect"
+              coords="424,182,500,283"
+              alt=""
+              [routerLink]="['', 'exh-medpharma']"
+              (click)="openDialog(link2)"
+            />
+          </map>
+        </div>
+        <div class="d_320">
+          <img
+            src="assets/event/exh/medpharma_booth_320.png"
+            alt="Workplace"
+            usemap="#workmap_320"
+            width="320px"
+            height="199px"
+          />
+
+          <map name="workmap_320">
+            <area
+              shape="rect"
+              coords="136,75,168,119"
+              alt="sss"
+              [routerLink]="['', 'exh-medpharma']"
+              (click)="openDialog(link1)"
+            />
+            <!-- [routerLink]="['', 'show-image', link1]" -->
+            <area
+              shape="rect"
+              coords="177,75,208,119"
+              alt=""
+              [routerLink]="['', 'exh-medpharma']"
+              (click)="openDialog(link2)"
+            />
+          </map>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container end -->
+  </div>
+</section>
